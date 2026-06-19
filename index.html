@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía y calculadora para independiente en Colombia 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --surface-page: #F7F0EA;
+      --surface-container: #FFFAF5;
+      --surface-form: #FDFDFD;
+      --surface-subtle: #F7F0F5;
+      --surface-primary: #B84BAA;
+      --surface-primary-hover: #8E3D86;
+      --surface-primary-soft: #F9D7FF;
+      --surface-success-soft: #F0FFF6;
+      --surface-warning-soft: #FFFBEB;
+      --surface-danger-soft: #FFF1F1;
+      --text-heading: #342B33;
+      --text-body: #423841;
+      --text-caption: #50464F;
+      --text-subtle: #867984;
+      --text-on-primary: #FDFDFD;
+      --text-primary: #8E3D86;
+      --text-success: #076238;
+      --text-warning: #D97706;
+      --text-danger: #A31919;
+      --border-default: #E9DFE7;
+      --border-focus: #E57CD8;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-pill: 9999px;
+      --shadow-xs: 0 1px 2px rgba(37, 30, 37, 0.06);
+      --shadow-md: 0 12px 28px rgba(37, 30, 37, 0.08);
+      --focus-ring: 0 0 0 4px rgba(184, 75, 170, 0.22);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+    header {
+      padding: 32px 20px 18px;
+      border-bottom: 1px solid var(--border-default);
+      background: linear-gradient(180deg, rgba(253,253,253,.72), rgba(255,250,245,.92)), var(--surface-container);
+    }
+    main, .intro { width: min(1180px, calc(100% - 32px)); margin-inline: auto; }
+    main { margin-bottom: 48px; }
+    .intro { display: flex; flex-direction: column; gap: 12px; }
+    .intro p { max-width: 840px; font-size: 1rem; }
+    h1, h2, h3 { margin: 0; line-height: 1.15; letter-spacing: 0; }
+    h1 { max-width: 900px; color: var(--text-heading); font-size: clamp(2rem, 3vw, 3rem); font-weight: 800; }
+    h2 { color: var(--text-heading); font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; }
+    h3 { color: var(--text-caption); font-size: .94rem; font-weight: 800; margin-bottom: 10px; }
+    p { margin: 0; color: var(--text-subtle); }
+    a { color: var(--text-primary); font-weight: 700; text-decoration-color: rgba(184,75,170,.32); text-underline-offset: 3px; }
+    a:hover { color: var(--surface-primary-hover); }
+    .summary-bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0 16px; }
+    .metric, section { background: var(--surface-container); border: 1px solid var(--border-default); border-radius: var(--radius-md); box-shadow: var(--shadow-xs); }
+    .metric { min-height: 100px; padding: 16px 18px; display: grid; align-content: space-between; }
+    .metric span { display: block; color: var(--text-subtle); font-size: .78rem; font-weight: 700; margin-bottom: 8px; }
+    .metric strong { display: block; color: var(--text-heading); font-size: clamp(1.15rem, 2vw, 1.65rem); font-weight: 800; overflow-wrap: anywhere; }
+    .metric:last-child { background: var(--surface-primary); border-color: var(--surface-primary); box-shadow: var(--shadow-md); }
+    .metric:last-child span, .metric:last-child strong { color: var(--text-on-primary); }
+    section { padding: 20px; margin: 16px 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    label { display: grid; gap: 6px; color: var(--text-caption); font-size: .875rem; font-weight: 700; }
+    input, select { width: 100%; min-height: 44px; border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 10px 11px; color: var(--text-heading); background: var(--surface-form); font: inherit; font-weight: 600; }
+    input:focus, select:focus { outline: none; border-color: var(--border-focus); box-shadow: var(--focus-ring); }
+    .toggle-row { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--text-caption); font-size: .93rem; }
+    .toggle-row input { width: 18px; height: 18px; min-height: 18px; accent-color: var(--surface-primary); }
+    table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .94rem; overflow: hidden; border: 1px solid var(--border-default); border-radius: var(--radius-md); }
+    th, td { border-bottom: 1px solid var(--border-default); padding: 11px 12px; text-align: left; vertical-align: top; }
+    th { color: var(--text-subtle); font-weight: 800; background: var(--surface-subtle); }
+    tr:last-child td { border-bottom: 0; }
+    td { color: var(--text-caption); background: var(--surface-form); }
+    td strong { color: var(--text-heading); }
+    td:last-child, th:last-child { text-align: right; }
+    .note { border-radius: var(--radius-md); padding: 12px 14px; margin-top: 12px; color: var(--text-success); background: var(--surface-success-soft); border: 1px solid #B8F2D0; font-weight: 600; }
+    .warning { color: var(--text-warning); background: var(--surface-warning-soft); border-color: #FDE68A; }
+    .danger { color: var(--text-danger); background: var(--surface-danger-soft); border-color: #FFC7C7; }
+    .small { font-size: .88rem; color: var(--text-subtle); }
+    .result-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .result-line { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-caption); }
+    .result-line strong { text-align: right; overflow-wrap: anywhere; color: var(--text-heading); font-weight: 800; }
+    .pill { display: inline-flex; align-items: center; width: fit-content; min-height: 28px; padding: 4px 10px; border-radius: var(--radius-pill); background: var(--surface-primary-soft); color: var(--text-primary); border: 1px solid #EC84FF; font-weight: 800; font-size: .84rem; }
+    .steps { display: grid; gap: 10px; padding-left: 18px; color: var(--text-caption); }
+    .steps li::marker { color: var(--surface-primary); font-weight: 800; }
+    @media (max-width: 900px) {
+      .summary-bar, .grid, .three, .result-list { grid-template-columns: 1fr; }
+      header { padding-top: 24px; }
+      main, .intro { width: min(100% - 24px, 1180px); }
+      section { padding: 16px; }
+      table { font-size: .86rem; }
+      th, td { padding: 9px 8px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="intro">
+      <span class="pill">Colombia 2026 · editable</span>
+      <h1>Guía y calculadora mensual para independiente con contrato en dólares</h1>
+      <p>Usa el valor bruto mensual sin IVA, la TRM del pago y tus deducciones reales. La herramienta estima aportes a seguridad social, una retención de referencia y reservas personales para reemplazar prestaciones laborales.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="summary-bar" aria-live="polite">
+      <div class="metric"><span>Ingreso mensual en COP</span><strong id="mIngreso">$0</strong></div>
+      <div class="metric"><span>Aportes PILA estimados</span><strong id="mAportes">$0</strong></div>
+      <div class="metric"><span>Retención / provisión impuesto</span><strong id="mRetencion">$0</strong></div>
+      <div class="metric"><span>Disponible después de separar</span><strong id="mDisponible">$0</strong></div>
+    </div>
+
+    <section>
+      <h2>1. Datos del mes</h2>
+      <div class="grid three">
+        <label>Honorarios del mes en USD<input id="usd" type="number" min="0" step="0.01" value="5000"></label>
+        <label>TRM usada para convertir a COP<input id="trm" type="number" min="0" step="0.01" value="3900"></label>
+        <label>Otros ingresos del mes en COP<input id="otrosCop" type="number" min="0" step="1000" value="0"></label>
+      </div>
+      <p class="note">Para contratos de prestación de servicios, la UGPP indica que el ingreso base parte del valor bruto mensual del contrato sin IVA. Si tu cliente extranjero no practica retención en Colombia, esta “retención” funciona como provisión propia para renta.</p>
+    </section>
+
+    <section>
+      <h2>2. Parámetros editables</h2>
+      <div class="grid three">
+        <label>UVT 2026<input id="uvt" type="number" min="1" step="1" value="52374"></label>
+        <label>SMMLV 2026<input id="smmlv" type="number" min="1" step="1" value="1750905"></label>
+        <label>Nivel de riesgo ARL<select id="arlNivel"><option value="0.00522">I · 0,522%</option><option value="0.01044">II · 1,044%</option><option value="0.02436">III · 2,436%</option><option value="0.04350">IV · 4,350%</option><option value="0.06960">V · 6,960%</option><option value="0">No aplicar ARL</option></select></label>
+        <label>Caja de compensación voluntaria<select id="cajaRate"><option value="0">No aportar</option><option value="0.006">0,6%</option><option value="0.02">2%</option></select></label>
+        <label>Reserva personal de emergencia<input id="reservaExtraPct" type="number" min="0" max="100" step="0.1" value="5"></label>
+        <label>Método de impuesto<select id="taxMode"><option value="art383">Tabla Art. 383 estimada</option><option value="flat10">10% sobre ingreso</option><option value="flat11">11% sobre ingreso</option><option value="none">No separar impuesto</option></select></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Deducciones para estimar retención</h2>
+      <div class="grid three">
+        <label>Dependientes económicos<input id="dependientes" type="number" min="0" step="1000" value="0"></label>
+        <label>Medicina prepagada<input id="prepagada" type="number" min="0" step="1000" value="0"></label>
+        <label>Intereses de vivienda<input id="vivienda" type="number" min="0" step="1000" value="0"></label>
+        <label>AFC / pensión voluntaria<input id="voluntarios" type="number" min="0" step="1000" value="0"></label>
+        <label>Retención real ya practicada<input id="retencionReal" type="number" min="0" step="1000" value="0"></label>
+        <label class="toggle-row"><input id="renta25" type="checkbox" checked>Aplicar renta exenta estimada del 25%</label>
+      </div>
+      <p class="note warning">La retención por Art. 383 aquí es una estimación mensual. La declaración anual puede cambiar por topes, otros ingresos, costos no aplicables a prestación de servicios, patrimonio, deducciones soportadas y reglas vigentes al declarar.</p>
+    </section>
+
+    <section>
+      <h2>4. Resultado automático del mes</h2>
+      <div class="grid">
+        <div><h3>Aportes obligatorios y voluntarios</h3><table><tbody id="tablaAportes"></tbody></table></div>
+        <div><h3>Separación recomendada</h3><table><tbody id="tablaReservas"></tbody></table></div>
+      </div>
+      <div class="note" id="estado"></div>
+    </section>
+
+    <section>
+      <h2>5. Guía mensual sin pensarlo tanto</h2>
+      <ol class="steps">
+        <li>Cuando te paguen, toma el valor en USD y conviértelo con la TRM real del abono o con la tasa que uses contablemente.</li>
+        <li>Paga seguridad social mes vencido en PILA: salud, pensión y ARL si aplica. Guarda el soporte.</li>
+        <li>Separa la provisión de impuesto calculada. Si el cliente ya te retuvo, registra ese valor en “retención real ya practicada”.</li>
+        <li>Mueve a una cuenta aparte las reservas de vacaciones, prima, cesantías e intereses. No son prestaciones legales en tu contrato, son tu colchón personal.</li>
+        <li>Actualiza UVT y SMMLV al iniciar cada año, o antes si una norma cambia el valor vigente.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>6. Fórmulas usadas</h2>
+      <div class="result-list">
+        <div class="result-line"><span>Ingreso COP</span><strong>USD × TRM + otros ingresos</strong></div>
+        <div class="result-line"><span>IBC prestación de servicios</span><strong>40% del ingreso, mínimo 1 SMMLV y máximo 25 SMMLV si estás obligado</strong></div>
+        <div class="result-line"><span>Salud</span><strong>IBC × 12,5%</strong></div>
+        <div class="result-line"><span>Pensión</span><strong>IBC × 16%</strong></div>
+        <div class="result-line"><span>ARL</span><strong>IBC × nivel de riesgo</strong></div>
+        <div class="result-line"><span>Base retención estimada</span><strong>Ingreso - salud - pensión - beneficios permitidos</strong></div>
+        <div class="result-line"><span>Beneficios en retención</span><strong>Limitados al 40% del ingreso neto para este cálculo</strong></div>
+        <div class="result-line"><span>Reservas personales</span><strong>Porcentajes de referencia sobre ingreso COP</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Fuentes y notas</h2>
+      <p class="small">Fuentes revisadas el 5 de junio de 2026: UGPP sobre independientes y PILA; ABC UGPP para contrato de prestación de servicios; Estatuto Tributario, artículos 383 y 388; Decreto 159 de 2026 sobre SMMLV; referencias DIAN sobre UVT 2026. Esta guía no reemplaza a un contador.</p>
+      <p class="small">Enlaces: <a href="https://www.ugpp.gov.co/seguridad-social-trabajadores-independientes/">UGPP seguridad social independientes</a> · <a href="https://www.ugpp.gov.co/wp-content/uploads/2026/01/ABC-Trabajador-Independiente-Contrato-Prestacion-Servicios.pdf">ABC UGPP prestación de servicios</a> · <a href="https://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr015.html">Estatuto Tributario Art. 383 y 388</a> · <a href="https://normograma.mintic.gov.co/mintic/compilacion/docs/decreto_0159_2026.htm">Decreto 159 de 2026</a>.</p>
+    </section>
+  </main>
+
+  <script>
+    const money = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
+    const inputs = Array.from(document.querySelectorAll("input, select"));
+    inputs.forEach((input) => input.addEventListener("input", calculate));
+    function value(id) {
+      const el = document.getElementById(id);
+      return el.type === "checkbox" ? el.checked : Number(el.value || 0);
+    }
+    function clamp(number, min, max) { return Math.min(Math.max(number, min), max); }
+    function tax383(baseCop, uvt) {
+      const baseUvt = baseCop / uvt;
+      let impuestoUvt = 0;
+      if (baseUvt <= 95) impuestoUvt = 0;
+      else if (baseUvt <= 150) impuestoUvt = (baseUvt - 95) * 0.19;
+      else if (baseUvt <= 360) impuestoUvt = (baseUvt - 150) * 0.28 + 10;
+      else if (baseUvt <= 640) impuestoUvt = (baseUvt - 360) * 0.33 + 69;
+      else if (baseUvt <= 945) impuestoUvt = (baseUvt - 640) * 0.35 + 162;
+      else if (baseUvt <= 2300) impuestoUvt = (baseUvt - 945) * 0.37 + 268;
+      else impuestoUvt = (baseUvt - 2300) * 0.39 + 770;
+      return Math.max(0, impuestoUvt * uvt);
+    }
+    function row(label, amount) { return `<tr><td>${label}</td><td>${money.format(Math.round(amount))}</td></tr>`; }
+    function calculate() {
+      const usd = value("usd");
+      const trm = value("trm");
+      const otrosCop = value("otrosCop");
+      const uvt = value("uvt");
+      const smmlv = value("smmlv");
+      const ingreso = Math.max(0, usd * trm + otrosCop);
+      const obligado = ingreso >= smmlv;
+      const ibc = obligado ? clamp(ingreso * 0.4, smmlv, smmlv * 25) : 0;
+      const salud = ibc * 0.125;
+      const pension = ibc * 0.16;
+      const arl = ibc * Number(document.getElementById("arlNivel").value);
+      const caja = ibc * Number(document.getElementById("cajaRate").value);
+      const aportes = salud + pension + arl + caja;
+      const ingresoNetoRetencion = Math.max(0, ingreso - salud - pension);
+      const deducciones = value("dependientes") + value("prepagada") + value("vivienda") + value("voluntarios");
+      const renta25Base = Math.max(0, ingresoNetoRetencion - deducciones);
+      const renta25 = value("renta25") ? Math.min(renta25Base * 0.25, (790 * uvt) / 12) : 0;
+      const beneficiosAplicados = Math.min(deducciones + renta25, ingresoNetoRetencion * 0.4);
+      const baseRetencion = Math.max(0, ingresoNetoRetencion - beneficiosAplicados);
+      const taxMode = document.getElementById("taxMode").value;
+      let impuesto = 0;
+      if (taxMode === "art383") impuesto = tax383(baseRetencion, uvt);
+      if (taxMode === "flat10") impuesto = ingreso * 0.10;
+      if (taxMode === "flat11") impuesto = ingreso * 0.11;
+      impuesto = Math.max(0, impuesto - value("retencionReal"));
+      const vacaciones = ingreso * 0.0417;
+      const prima = ingreso * 0.0833;
+      const cesantias = ingreso * 0.0833;
+      const interesesCesantias = cesantias * 0.12;
+      const reservaExtra = ingreso * (value("reservaExtraPct") / 100);
+      const reservasPersonales = vacaciones + prima + cesantias + interesesCesantias + reservaExtra;
+      const totalSeparar = aportes + impuesto + reservasPersonales;
+      const disponible = ingreso - totalSeparar;
+      document.getElementById("mIngreso").textContent = money.format(Math.round(ingreso));
+      document.getElementById("mAportes").textContent = money.format(Math.round(aportes));
+      document.getElementById("mRetencion").textContent = money.format(Math.round(impuesto));
+      document.getElementById("mDisponible").textContent = money.format(Math.round(disponible));
+      document.getElementById("tablaAportes").innerHTML = row("IBC calculado", ibc) + row("Salud 12,5%", salud) + row("Pensión 16%", pension) + row("ARL", arl) + row("Caja voluntaria", caja) + row("<strong>Total aportes</strong>", aportes);
+      document.getElementById("tablaReservas").innerHTML = row("Base retención estimada", baseRetencion) + row("Impuesto / retención a separar", impuesto) + row("Vacaciones propias 4,17%", vacaciones) + row("Prima propia 8,33%", prima) + row("Cesantías propias 8,33%", cesantias) + row("Intereses cesantías 12% anual", interesesCesantias) + row("Emergencia editable", reservaExtra) + row("<strong>Total a separar</strong>", totalSeparar);
+      const estado = document.getElementById("estado");
+      if (!obligado) {
+        estado.className = "note warning";
+        estado.textContent = "El ingreso está por debajo de 1 SMMLV. Según la guía UGPP, la obligación de aportar se activa con ingresos mensuales iguales o superiores a 1 SMMLV; aun así puedes aportar voluntariamente para mantener cobertura.";
+      } else if (disponible < 0) {
+        estado.className = "note danger";
+        estado.textContent = "Las reservas y aportes superan el ingreso del mes. Revisa TRM, deducciones, ARL, reserva extra o el método de impuesto.";
+      } else {
+        estado.className = "note";
+        estado.textContent = "Con estos datos, este es el dinero que deberías separar antes de gastar. El disponible es lo que queda para vida personal y operación.";
+      }
+    }
+    calculate();
+  </script>
+</body>
+</html>
