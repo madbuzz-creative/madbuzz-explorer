@@ -44,6 +44,7 @@
       --velvet-text-body: #423841;
       --velvet-text-caption: #50464F;
       --velvet-text-subtle: #867984;
+      --velvet-text-disabled: #CBC3C9;
       --velvet-text-highlight: #8E3D86;
       --velvet-text-alternative: #F7F0F5;
 
@@ -64,7 +65,10 @@
       --velvet-surface-container: #FFFAF5;
       --velvet-surface-forms: #FDFDFD;
       --velvet-surface-forms-active: #E9DFE7;
-      --velvet-surface-neutral-subtle: #F7F0F5;
+      --velvet-surface-disabled: #E3DDE1;
+      --velvet-surface-neutral-variant: #F7F0F5;
+      --velvet-surface-neutral-default-subtle: #E9DFE7;
+      --velvet-surface-neutral-default-subtle-active: #E3DDE1;
 
       /* Surface/primary */
       --velvet-surface-primary-default: #B84BAA;
@@ -81,9 +85,9 @@
       --velvet-surface-destructive-subtle-active: #FFC7C7;
 
       /* Border */
-      --velvet-border-neutral-subtle: #E9DFE7;
       --velvet-border-disabled: #CBC3C9;
       --velvet-border-focus: #E57CD8;
+      --velvet-border-error: #B91C1C;
 
       /* color/neutral/90 — shadow/focus base */
       --velvet-color-neutral-90: #251E25;
@@ -93,6 +97,8 @@
 
       /* shadow/focus/primary/default */
       --velvet-focus-ring-color: rgb(184 75 170 / 0.3);
+      /* shadow/focus/destructive/default */
+      --velvet-focus-ring-destructive-color: rgb(185 28 28 / 0.3);
 
       /* Text/style sizes */
       --velvet-text-heading-md: 48px;
@@ -103,11 +109,13 @@
       --velvet-text-body-md: 16px;
       --velvet-text-body-sm: 14px;
       --velvet-text-body-xs: 12px;
+      --velvet-line-height-body-sm: 1.43;
 
       /* Effects composed from shadow/* + raw-size/* */
       --velvet-shadow-xs: 0 var(--velvet-size-1) var(--velvet-size-2) color-mix(in srgb, var(--velvet-color-neutral-90) 6%, transparent);
       --velvet-shadow-md: 0 var(--velvet-size-12) var(--velvet-size-28) color-mix(in srgb, var(--velvet-color-neutral-90) 8%, transparent);
       --velvet-focus-ring: 0 0 0 var(--velvet-size-4) var(--velvet-focus-ring-color);
+      --velvet-focus-ring-destructive: 0 0 0 var(--velvet-size-4) var(--velvet-focus-ring-destructive-color);
       --velvet-input-inset: inset 0 var(--velvet-size-1) 0 color-mix(in srgb, var(--velvet-surface-forms) 68%, transparent);
       --velvet-shadow-top-md: 0 calc(-1 * var(--velvet-size-4)) var(--velvet-size-16) color-mix(in srgb, var(--velvet-color-neutral-90) 8%, transparent);
       --velvet-summary-bar-offset: calc(var(--velvet-size-96) + var(--velvet-size-24) + var(--velvet-size-12) * 2);
@@ -127,7 +135,7 @@
 
     header {
       padding: var(--velvet-size-32) var(--velvet-size-20) var(--velvet-size-18);
-      border-bottom: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-bottom: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       background:
         linear-gradient(
           180deg,
@@ -202,7 +210,7 @@
       gap: var(--velvet-size-12);
       padding: var(--velvet-size-12) var(--velvet-size-16);
       background: var(--velvet-surface-container);
-      border-top: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-top: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       box-shadow: var(--velvet-shadow-top-md);
     }
 
@@ -214,7 +222,7 @@
 
     .metric, section {
       background: var(--velvet-surface-container);
-      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       border-radius: var(--velvet-size-8);
       box-shadow: var(--velvet-shadow-xs);
     }
@@ -302,8 +310,8 @@
       flex-shrink: 0;
       padding: var(--velvet-size-2);
       gap: var(--velvet-size-2);
-      background: var(--velvet-surface-neutral-subtle);
-      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      background: var(--velvet-surface-neutral-variant);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       border-radius: var(--velvet-size-6);
     }
 
@@ -356,9 +364,34 @@
       gap: var(--velvet-size-6);
     }
 
-    .trm-refresh {
+    .ph-icon {
+      display: inline-block;
       flex-shrink: 0;
-      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .ph-icon--xs { font-size: var(--velvet-size-14); width: var(--velvet-size-14); height: var(--velvet-size-14); }
+    .ph-icon--sm { font-size: var(--velvet-size-16); width: var(--velvet-size-16); height: var(--velvet-size-16); }
+    .ph-icon--md { font-size: var(--velvet-size-20); width: var(--velvet-size-20); height: var(--velvet-size-20); }
+    .ph-icon--lg { font-size: var(--velvet-size-24); width: var(--velvet-size-24); height: var(--velvet-size-24); }
+
+    svg.ph-icon { fill: currentColor; }
+
+    .ph-icon--spin {
+      animation: ph-icon-spin 0.8s linear infinite;
+    }
+
+    @keyframes ph-icon-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .trm-refresh {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--velvet-size-6);
+      flex-shrink: 0;
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       border-radius: var(--velvet-size-6);
       padding: var(--velvet-size-4) var(--velvet-size-10);
       font: inherit;
@@ -406,33 +439,246 @@
       gap: var(--velvet-size-6);
       color: var(--velvet-text-caption);
       font-size: var(--velvet-text-title-sm);
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    input:not([type="checkbox"]), select {
+    .field-helper {
+      margin: 0;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--velvet-text-subtle);
+    }
+
+    .field-error {
+      margin: 0;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--velvet-text-status-destructive);
+    }
+
+    input:not([type="checkbox"]) {
       width: 100%;
       height: var(--velvet-size-40);
       min-height: var(--velvet-size-40);
-      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       border-radius: var(--velvet-size-6);
-      padding: var(--velvet-size-10) var(--velvet-size-12);
-      color: var(--velvet-text-heading);
+      padding: var(--velvet-size-12);
+      color: var(--velvet-text-body);
       background: var(--velvet-surface-forms);
       font: inherit;
       font-size: var(--velvet-text-body-sm);
-      font-weight: 600;
+      font-weight: 500;
+      line-height: var(--velvet-line-height-body-sm);
       box-shadow: var(--velvet-input-inset);
     }
 
-    input:not([type="checkbox"]):hover, select:hover {
+    select {
+      width: 100%;
+      height: var(--velvet-size-40);
+      min-height: var(--velvet-size-40);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+      padding: 0 var(--velvet-size-32) 0 var(--velvet-size-12);
+      color: var(--velvet-text-body);
+      background-color: var(--velvet-surface-forms);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23867984' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right var(--velvet-size-10) center;
+      background-size: var(--velvet-size-16) var(--velvet-size-16);
+      font: inherit;
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
+      line-height: calc(var(--velvet-size-40) - var(--velvet-size-2));
+      box-shadow: var(--velvet-input-inset);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+
+    input:not([type="checkbox"])::placeholder {
+      color: var(--velvet-text-subtle);
+      font-weight: 500;
+    }
+
+    input[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input:not([type="checkbox"]):hover:not(:disabled),
+    select:hover:not(:disabled) {
       border-color: var(--velvet-border-disabled);
     }
 
-    input:not([type="checkbox"]):focus, select:focus {
+    input:not([type="checkbox"]):not(:disabled):active {
+      background: var(--velvet-surface-forms-active);
+      border-color: var(--velvet-surface-neutral-default-subtle-active);
+    }
+
+    select:not(:disabled):active {
+      background-color: var(--velvet-surface-forms-active);
+      border-color: var(--velvet-surface-neutral-default-subtle-active);
+    }
+
+    input:not([type="checkbox"]):focus-visible {
       outline: none;
       border-color: var(--velvet-border-focus);
       background: var(--velvet-surface-forms);
       box-shadow: var(--velvet-focus-ring);
+    }
+
+    select:focus-visible {
+      outline: none;
+      border-color: var(--velvet-border-focus);
+      background-color: var(--velvet-surface-forms);
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    input:not([type="checkbox"]):disabled {
+      background: var(--velvet-surface-disabled);
+      border-color: var(--velvet-border-disabled);
+      color: var(--velvet-text-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    select:disabled {
+      background-color: var(--velvet-surface-disabled);
+      border-color: var(--velvet-border-disabled);
+      color: var(--velvet-text-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    input:not([type="checkbox"]).is-error {
+      border-color: var(--velvet-border-error);
+      background: var(--velvet-surface-destructive-subtle);
+    }
+
+    select.is-error {
+      border-color: var(--velvet-border-error);
+      background-color: var(--velvet-surface-destructive-subtle);
+    }
+
+    input:not([type="checkbox"]).is-error:focus-visible {
+      border-color: var(--velvet-border-error);
+      box-shadow: var(--velvet-focus-ring-destructive);
+    }
+
+    select.is-error:focus-visible {
+      border-color: var(--velvet-border-error);
+      background-color: var(--velvet-surface-destructive-subtle);
+      box-shadow: var(--velvet-focus-ring-destructive);
+    }
+
+    .currency-input {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+      background: var(--velvet-surface-forms);
+      box-shadow: var(--velvet-input-inset);
+      overflow: hidden;
+    }
+
+    .currency-input:hover:not(:has(input:disabled)) {
+      border-color: var(--velvet-border-disabled);
+    }
+
+    .currency-input:has(input:not(:disabled):active) {
+      background: var(--velvet-surface-forms-active);
+      border-color: var(--velvet-surface-neutral-default-subtle-active);
+    }
+
+    .currency-input:focus-within:has(:focus-visible) {
+      border-color: var(--velvet-border-focus);
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    .currency-input:has(input:disabled) {
+      background: var(--velvet-surface-disabled);
+      border-color: var(--velvet-border-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    .currency-input.is-error {
+      border-color: var(--velvet-border-error);
+      background: var(--velvet-surface-destructive-subtle);
+    }
+
+    .currency-input.is-error:focus-within:has(:focus-visible) {
+      border-color: var(--velvet-border-error);
+      box-shadow: var(--velvet-focus-ring-destructive);
+    }
+
+    .currency-input__prefix,
+    .currency-input__suffix {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      min-width: var(--velvet-size-40);
+      padding: 0 var(--velvet-size-12);
+      color: var(--velvet-text-subtle);
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      background: var(--velvet-surface-neutral-default-subtle);
+      border-right: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+    }
+
+    .currency-input__suffix {
+      border-right: 0;
+      border-left: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+    }
+
+    .currency-input:has(input:disabled) .currency-input__prefix,
+    .currency-input:has(input:disabled) .currency-input__suffix {
+      background: var(--velvet-surface-disabled);
+      color: var(--velvet-text-disabled);
+    }
+
+    .currency-input input {
+      flex: 1;
+      min-width: 0;
+      width: auto;
+      height: var(--velvet-size-40);
+      min-height: var(--velvet-size-40);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      padding: var(--velvet-size-12);
+      color: var(--velvet-text-body);
+      font-weight: 500;
+      line-height: var(--velvet-line-height-body-sm);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .currency-input input:disabled {
+      background: transparent;
+      color: var(--velvet-text-disabled);
+    }
+
+    .currency-input input:hover,
+    .currency-input input:focus,
+    .currency-input input:focus-visible,
+    .currency-input input:active {
+      border-color: transparent;
+      box-shadow: none;
+      background: transparent;
     }
 
     .toggle-row {
@@ -459,12 +705,12 @@
       border-spacing: 0;
       font-size: var(--velvet-text-body-sm);
       overflow: hidden;
-      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       border-radius: var(--velvet-size-8);
     }
 
     th, td {
-      border-bottom: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-bottom: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       padding: var(--velvet-size-12);
       text-align: left;
       vertical-align: top;
@@ -474,7 +720,7 @@
       color: var(--velvet-text-subtle);
       font-size: var(--velvet-text-body-xs);
       font-weight: 800;
-      background: var(--velvet-surface-neutral-subtle);
+      background: var(--velvet-surface-neutral-variant);
     }
 
     tr:last-child td { border-bottom: 0; }
@@ -522,7 +768,7 @@
       justify-content: space-between;
       gap: var(--velvet-size-10);
       padding: var(--velvet-size-10) 0;
-      border-bottom: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-bottom: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
       color: var(--velvet-text-caption);
       font-size: var(--velvet-text-body-sm);
       font-weight: 500;
@@ -622,15 +868,25 @@
       <div class="grid three month-data" id="datosMesGrid" data-currency="usd">
         <label>
           <span id="honorariosLabelText">Honorarios del mes en USD</span>
-          <input id="honorarios" type="number" min="0" step="0.01" value="5000">
+          <span class="currency-input">
+            <span class="currency-input__prefix" id="honorariosPrefix" aria-hidden="true">US$</span>
+            <input id="honorarios" type="number" min="0" step="0.01" value="5000" inputmode="decimal">
+          </span>
         </label>
         <div class="trm-field" id="trmField">
           <label>
             <span class="label-row">
               <span>TRM usada para convertir a COP</span>
-              <button type="button" class="trm-refresh" id="trmRefresh" title="Restaurar TRM oficial">Actualizar</button>
+              <button type="button" class="trm-refresh" id="trmRefresh" title="Restaurar TRM oficial">
+                <i class="ph ph-arrow-clockwise ph-icon ph-icon--sm" id="trmRefreshIcon" aria-hidden="true"></i>
+                <span>Actualizar</span>
+              </button>
             </span>
-            <input id="trm" type="number" min="0" step="0.01" value="3900">
+            <span class="currency-input">
+              <span class="currency-input__prefix" aria-hidden="true">$</span>
+              <input id="trm" type="number" min="0" step="0.01" value="3900" inputmode="decimal">
+              <span class="currency-input__suffix" aria-hidden="true">COP</span>
+            </span>
           </label>
           <label class="trm-date-row">Fecha del abono
             <input id="trmDate" type="date">
@@ -638,7 +894,10 @@
           <p class="trm-status is-loading" id="trmStatus" aria-live="polite">Consultando TRM oficial…</p>
         </div>
         <label>Otros ingresos del mes en COP
-          <input id="otrosCop" type="number" min="0" step="1000" value="0">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="otrosCop" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
         </label>
       </div>
       <p class="note">Para contratos de prestación de servicios, la UGPP indica que el ingreso base parte del valor bruto mensual del contrato sin IVA. Si tu cliente extranjero no practica retención en Colombia, esta “retención” funciona como provisión propia para renta.</p>
@@ -648,10 +907,16 @@
       <h2>2. Parámetros editables</h2>
       <div class="grid three">
         <label>UVT 2026
-          <input id="uvt" type="number" min="1" step="1" value="52374">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="uvt" type="number" min="1" step="1" value="52374" inputmode="decimal">
+          </span>
         </label>
         <label>SMMLV 2026
-          <input id="smmlv" type="number" min="1" step="1" value="1750905">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="smmlv" type="number" min="1" step="1" value="1750905" inputmode="decimal">
+          </span>
         </label>
         <label>Nivel de riesgo ARL
           <select id="arlNivel">
@@ -688,19 +953,34 @@
       <h2>3. Deducciones para estimar retención</h2>
       <div class="grid three">
         <label>Dependientes económicos
-          <input id="dependientes" type="number" min="0" step="1000" value="0">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="dependientes" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
         </label>
         <label>Medicina prepagada
-          <input id="prepagada" type="number" min="0" step="1000" value="0">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="prepagada" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
         </label>
         <label>Intereses de vivienda
-          <input id="vivienda" type="number" min="0" step="1000" value="0">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="vivienda" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
         </label>
         <label>AFC / pensión voluntaria
-          <input id="voluntarios" type="number" min="0" step="1000" value="0">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="voluntarios" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
         </label>
         <label>Retención real ya practicada
-          <input id="retencionReal" type="number" min="0" step="1000" value="0">
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="retencionReal" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
         </label>
         <label class="toggle-row">
           <input id="renta25" type="checkbox" checked>
@@ -774,361 +1054,6 @@
     <div class="metric"><span>Disponible después de separar</span><strong id="mDisponible">$0</strong></div>
   </aside>
 
-  <script>
-    const money = new Intl.NumberFormat("es-CO", {
-      style: "currency",
-      currency: "COP",
-      maximumFractionDigits: 0
-    });
-
-    const trmRate = new Intl.NumberFormat("es-CO", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-
-    const trmDateFormat = new Intl.DateTimeFormat("es-CO", { dateStyle: "medium" });
-
-    const TRM_API = "https://www.datos.gov.co/resource/32sa-8pi3.json";
-    const TRM_SOURCE_URL = "https://www.datos.gov.co/Econom-a-y-Finanzas/Tasa-de-Cambio-Representativa-del-Mercado-TRM/32sa-8pi3";
-    const TRM_CACHE_KEY = "velvet-trm-cache";
-    const TRM_FALLBACK = 3900;
-
-    const inputs = Array.from(document.querySelectorAll("input, select"));
-    inputs.forEach((input) => {
-      if (input.id === "trm" || input.id === "trmDate") return;
-      input.addEventListener("input", calculate);
-    });
-
-    let honorariosCurrency = "usd";
-    let trmSource = "loading";
-    let trmFetchToken = 0;
-
-    const honorariosInput = document.getElementById("honorarios");
-    const trmField = document.getElementById("trmField");
-    const trmInput = document.getElementById("trm");
-    const trmDateInput = document.getElementById("trmDate");
-    const trmStatus = document.getElementById("trmStatus");
-    const trmRefresh = document.getElementById("trmRefresh");
-    const datosMesGrid = document.getElementById("datosMesGrid");
-    const honorariosLabelText = document.getElementById("honorariosLabelText");
-    const formulaIngreso = document.getElementById("formulaIngreso");
-    const currencyButtons = Array.from(document.querySelectorAll(".currency-switch__option"));
-
-    trmDateInput.value = todayIsoDate();
-    trmDateInput.addEventListener("change", () => {
-      trmSource = "loading";
-      loadOfficialTrm({ force: true });
-    });
-
-    trmRefresh.addEventListener("click", () => loadOfficialTrm({ force: true }));
-
-    trmInput.addEventListener("input", () => {
-      trmSource = "manual";
-      renderTrmStatus();
-      calculate();
-    });
-
-    function todayIsoDate() {
-      const now = new Date();
-      const offset = now.getTimezoneOffset();
-      return new Date(now.getTime() - offset * 60_000).toISOString().slice(0, 10);
-    }
-
-    function parseTrmRow(row) {
-      const valor = Number(row?.valor);
-      if (!Number.isFinite(valor) || valor <= 0) throw new Error("TRM inválida");
-      const vigenciaDesde = String(row.vigenciadesde || "").slice(0, 10);
-      const vigenciaHasta = String(row.vigenciahasta || vigenciaDesde).slice(0, 10);
-      return { valor, vigenciaDesde, vigenciaHasta };
-    }
-
-    function readTrmCache(queryDate) {
-      try {
-        const cached = JSON.parse(localStorage.getItem(TRM_CACHE_KEY) || "null");
-        if (!cached || cached.queryDate !== queryDate) return null;
-        if (Date.now() - cached.fetchedAt > 6 * 60 * 60 * 1000) return null;
-        return parseTrmRow(cached);
-      } catch {
-        return null;
-      }
-    }
-
-    function writeTrmCache(queryDate, row) {
-      try {
-        localStorage.setItem(TRM_CACHE_KEY, JSON.stringify({
-          ...row,
-          valor: String(row.valor),
-          vigenciadesde: `${row.vigenciaDesde}T00:00:00.000`,
-          vigenciahasta: `${row.vigenciaHasta}T00:00:00.000`,
-          queryDate,
-          fetchedAt: Date.now()
-        }));
-      } catch {
-        /* ignore quota errors */
-      }
-    }
-
-    async function fetchOfficialTrm(queryDate) {
-      const url = new URL(TRM_API);
-      url.searchParams.set("$select", "valor,vigenciadesde,vigenciahasta");
-      url.searchParams.set("$where", `vigenciadesde <= '${queryDate}T23:59:59.000'`);
-      url.searchParams.set("$order", "vigenciadesde DESC");
-      url.searchParams.set("$limit", "1");
-
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`TRM HTTP ${response.status}`);
-
-      const rows = await response.json();
-      if (!Array.isArray(rows) || rows.length === 0) throw new Error("TRM no encontrada");
-      return parseTrmRow(rows[0]);
-    }
-
-    function formatIsoDate(isoDate) {
-      return trmDateFormat.format(new Date(`${isoDate}T12:00:00`));
-    }
-
-    function renderTrmStatus(extraMessage) {
-      trmStatus.classList.remove("is-loading", "is-official", "is-manual", "is-error");
-
-      if (trmSource === "loading") {
-        trmStatus.classList.add("is-loading");
-        trmStatus.textContent = extraMessage || "Consultando TRM oficial…";
-        return;
-      }
-
-      if (trmSource === "error") {
-        trmStatus.classList.add("is-error");
-        trmStatus.textContent = extraMessage || "No se pudo cargar la TRM oficial. Puedes editarla manualmente.";
-        return;
-      }
-
-      if (trmSource === "manual") {
-        trmStatus.classList.add("is-manual");
-        trmStatus.textContent = "TRM editada manualmente. Usa «Actualizar» para restaurar la TRM oficial.";
-        return;
-      }
-
-      const vigenciaDesde = trmInput.dataset.vigenciaDesde;
-      const vigenciaHasta = trmInput.dataset.vigenciaHasta;
-      const queryDate = trmDateInput.value;
-      trmStatus.classList.add("is-official");
-
-      let message = `TRM oficial: ${trmRate.format(value("trm"))} COP/USD`;
-      if (vigenciaDesde) {
-        message += ` · vigente desde ${formatIsoDate(vigenciaDesde)}`;
-        if (vigenciaHasta && vigenciaHasta !== vigenciaDesde) {
-          message += ` hasta ${formatIsoDate(vigenciaHasta)}`;
-        }
-      }
-      if (queryDate && queryDate !== todayIsoDate()) {
-        message += ` · consultada para abono del ${formatIsoDate(queryDate)}`;
-      }
-      message += " · Fuente: ";
-      trmStatus.innerHTML = `${message}<a href="${TRM_SOURCE_URL}" target="_blank" rel="noopener noreferrer">datos.gov.co</a>`;
-    }
-
-    async function loadOfficialTrm(options = {}) {
-      if (honorariosCurrency === "cop") return;
-
-      const queryDate = trmDateInput.value || todayIsoDate();
-      const requestId = ++trmFetchToken;
-
-      trmSource = "loading";
-      trmRefresh.disabled = true;
-      renderTrmStatus(options.force ? "Actualizando TRM oficial…" : undefined);
-
-      if (!options.force) {
-        const cached = readTrmCache(queryDate);
-        if (cached) {
-          applyOfficialTrm(cached, queryDate);
-          return;
-        }
-      }
-
-      try {
-        const row = await fetchOfficialTrm(queryDate);
-        if (requestId !== trmFetchToken) return;
-        writeTrmCache(queryDate, row);
-        applyOfficialTrm(row, queryDate);
-      } catch (error) {
-        if (requestId !== trmFetchToken) return;
-        trmSource = "error";
-        if (!trmInput.value || Number(trmInput.value) <= 0) {
-          trmInput.value = String(TRM_FALLBACK);
-        }
-        renderTrmStatus(error.message || "No se pudo cargar la TRM oficial.");
-        calculate();
-      } finally {
-        if (requestId === trmFetchToken) {
-          trmRefresh.disabled = honorariosCurrency === "cop";
-        }
-      }
-    }
-
-    function applyOfficialTrm(row, queryDate) {
-      trmSource = "official";
-      trmInput.value = String(row.valor);
-      trmInput.dataset.vigenciaDesde = row.vigenciaDesde;
-      trmInput.dataset.vigenciaHasta = row.vigenciaHasta;
-      trmInput.dataset.queryDate = queryDate;
-      renderTrmStatus();
-      trmRefresh.disabled = honorariosCurrency === "cop";
-      calculate();
-    }
-
-    currencyButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const nextCurrency = button.dataset.currency;
-        if (nextCurrency === honorariosCurrency) return;
-
-        const honorarios = value("honorarios");
-        const trm = value("trm");
-
-        if (nextCurrency === "cop") {
-          honorariosInput.value = String(Math.round(honorarios * trm));
-          honorariosInput.step = "1000";
-        } else {
-          honorariosInput.value = trm > 0 ? (honorarios / trm).toFixed(2) : String(honorarios);
-          honorariosInput.step = "0.01";
-        }
-
-        honorariosCurrency = nextCurrency;
-        updateCurrencyUI();
-        if (nextCurrency === "usd") loadOfficialTrm();
-        calculate();
-      });
-    });
-
-    function updateCurrencyUI() {
-      const isCop = honorariosCurrency === "cop";
-      trmField.hidden = isCop;
-      trmInput.disabled = isCop;
-      trmDateInput.disabled = isCop;
-      if (isCop) {
-        trmRefresh.disabled = true;
-      } else if (trmSource !== "loading") {
-        trmRefresh.disabled = false;
-      }
-      datosMesGrid.dataset.currency = honorariosCurrency;
-      honorariosLabelText.textContent = isCop ? "Honorarios del mes en COP" : "Honorarios del mes en USD";
-      formulaIngreso.textContent = isCop ? "Honorarios en COP + otros ingresos" : "USD × TRM + otros ingresos";
-
-      currencyButtons.forEach((btn) => {
-        const active = btn.dataset.currency === honorariosCurrency;
-        btn.classList.toggle("is-active", active);
-        btn.setAttribute("aria-pressed", String(active));
-      });
-    }
-
-    function value(id) {
-      const el = document.getElementById(id);
-      return el.type === "checkbox" ? el.checked : Number(el.value || 0);
-    }
-
-    function clamp(number, min, max) {
-      return Math.min(Math.max(number, min), max);
-    }
-
-    function tax383(baseCop, uvt) {
-      const baseUvt = baseCop / uvt;
-      let impuestoUvt = 0;
-      if (baseUvt <= 95) impuestoUvt = 0;
-      else if (baseUvt <= 150) impuestoUvt = (baseUvt - 95) * 0.19;
-      else if (baseUvt <= 360) impuestoUvt = (baseUvt - 150) * 0.28 + 10;
-      else if (baseUvt <= 640) impuestoUvt = (baseUvt - 360) * 0.33 + 69;
-      else if (baseUvt <= 945) impuestoUvt = (baseUvt - 640) * 0.35 + 162;
-      else if (baseUvt <= 2300) impuestoUvt = (baseUvt - 945) * 0.37 + 268;
-      else impuestoUvt = (baseUvt - 2300) * 0.39 + 770;
-      return Math.max(0, impuestoUvt * uvt);
-    }
-
-    function row(label, amount) {
-      return `<tr><td>${label}</td><td>${money.format(Math.round(amount))}</td></tr>`;
-    }
-
-    function calculate() {
-      const honorarios = value("honorarios");
-      const trm = value("trm");
-      const otrosCop = value("otrosCop");
-      const uvt = value("uvt");
-      const smmlv = value("smmlv");
-      const honorariosCop = honorariosCurrency === "usd" ? honorarios * trm : honorarios;
-      const ingreso = Math.max(0, honorariosCop + otrosCop);
-      const obligado = ingreso >= smmlv;
-      const ibc = obligado ? clamp(ingreso * 0.4, smmlv, smmlv * 25) : 0;
-
-      const salud = ibc * 0.125;
-      const pension = ibc * 0.16;
-      const arl = ibc * Number(document.getElementById("arlNivel").value);
-      const caja = ibc * Number(document.getElementById("cajaRate").value);
-      const aportes = salud + pension + arl + caja;
-
-      const ingresoNetoRetencion = Math.max(0, ingreso - salud - pension);
-      const dependientes = value("dependientes");
-      const prepagada = value("prepagada");
-      const vivienda = value("vivienda");
-      const voluntarios = value("voluntarios");
-      const deducciones = dependientes + prepagada + vivienda + voluntarios;
-      const renta25Base = Math.max(0, ingresoNetoRetencion - deducciones);
-      const renta25 = value("renta25") ? Math.min(renta25Base * 0.25, (790 * uvt) / 12) : 0;
-      const beneficioMax = ingresoNetoRetencion * 0.4;
-      const beneficiosAplicados = Math.min(deducciones + renta25, beneficioMax);
-      const baseRetencion = Math.max(0, ingresoNetoRetencion - beneficiosAplicados);
-
-      const taxMode = document.getElementById("taxMode").value;
-      let impuesto = 0;
-      if (taxMode === "art383") impuesto = tax383(baseRetencion, uvt);
-      if (taxMode === "flat10") impuesto = ingreso * 0.10;
-      if (taxMode === "flat11") impuesto = ingreso * 0.11;
-      impuesto = Math.max(0, impuesto - value("retencionReal"));
-
-      const vacaciones = ingreso * 0.0417;
-      const prima = ingreso * 0.0833;
-      const cesantias = ingreso * 0.0833;
-      const interesesCesantias = cesantias * 0.12;
-      const reservaExtra = ingreso * (value("reservaExtraPct") / 100);
-      const reservasPersonales = vacaciones + prima + cesantias + interesesCesantias + reservaExtra;
-      const totalSeparar = aportes + impuesto + reservasPersonales;
-      const disponible = ingreso - totalSeparar;
-
-      document.getElementById("mIngreso").textContent = money.format(Math.round(ingreso));
-      document.getElementById("mAportes").textContent = money.format(Math.round(aportes));
-      document.getElementById("mRetencion").textContent = money.format(Math.round(impuesto));
-      document.getElementById("mDisponible").textContent = money.format(Math.round(disponible));
-
-      document.getElementById("tablaAportes").innerHTML =
-        row("IBC calculado", ibc) +
-        row("Salud 12,5%", salud) +
-        row("Pensión 16%", pension) +
-        row("ARL", arl) +
-        row("Caja voluntaria", caja) +
-        row("<strong>Total aportes</strong>", aportes);
-
-      document.getElementById("tablaReservas").innerHTML =
-        row("Base retención estimada", baseRetencion) +
-        row("Impuesto / retención a separar", impuesto) +
-        row("Vacaciones propias 4,17%", vacaciones) +
-        row("Prima propia 8,33%", prima) +
-        row("Cesantías propias 8,33%", cesantias) +
-        row("Intereses cesantías 12% anual", interesesCesantias) +
-        row("Emergencia editable", reservaExtra) +
-        row("<strong>Total a separar</strong>", totalSeparar);
-
-      const estado = document.getElementById("estado");
-      if (!obligado) {
-        estado.className = "note warning";
-        estado.textContent = "El ingreso está por debajo de 1 SMMLV. Según la guía UGPP, la obligación de aportar se activa con ingresos mensuales iguales o superiores a 1 SMMLV; aun así puedes aportar voluntariamente para mantener cobertura.";
-      } else if (disponible < 0) {
-        estado.className = "note danger";
-        estado.textContent = "Las reservas y aportes superan el ingreso del mes. Revisa honorarios, deducciones, ARL, reserva extra o el método de impuesto.";
-      } else {
-        estado.className = "note";
-        estado.textContent = "Con estos datos, este es el dinero que deberías separar antes de gastar. El disponible es lo que queda para vida personal y operación.";
-      }
-    }
-
-    updateCurrencyUI();
-    loadOfficialTrm();
-  </script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
