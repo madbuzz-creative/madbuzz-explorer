@@ -1,0 +1,1101 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía y calculadora para independiente en Colombia 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Font/family */
+      --velvet-font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      /* raw-size */
+      --velvet-size-0: 0px;
+      --velvet-size-1: 1px;
+      --velvet-size-2: 2px;
+      --velvet-size-4: 4px;
+      --velvet-size-6: 6px;
+      --velvet-size-8: 8px;
+      --velvet-size-10: 10px;
+      --velvet-size-12: 12px;
+      --velvet-size-14: 14px;
+      --velvet-size-16: 16px;
+      --velvet-size-18: 18px;
+      --velvet-size-20: 20px;
+      --velvet-size-24: 24px;
+      --velvet-size-28: 28px;
+      --velvet-size-32: 32px;
+      --velvet-size-36: 36px;
+      --velvet-size-40: 40px;
+      --velvet-size-48: 48px;
+      --velvet-size-56: 56px;
+      --velvet-size-72: 72px;
+      --velvet-size-80: 80px;
+      --velvet-size-96: 96px;
+      --velvet-size-9999: 9999px;
+
+      /* Text/color/foreground-map */
+      --velvet-text-heading: #342B33;
+      --velvet-text-body: #423841;
+      --velvet-text-caption: #50464F;
+      --velvet-text-subtle: #867984;
+      --velvet-text-disabled: #CBC3C9;
+      --velvet-text-highlight: #8E3D86;
+      --velvet-text-alternative: #F7F0F5;
+
+      /* Text/color/on-color */
+      --velvet-text-on-color-heading: #FDFDFD;
+
+      /* Text/color/primary */
+      --velvet-text-primary-default: #B84BAA;
+      --velvet-text-primary-hover: #8E3D86;
+
+      /* Text/color/status */
+      --velvet-text-status-success: #076238;
+      --velvet-text-status-warning: #D97706;
+      --velvet-text-status-destructive: #A31919;
+
+      /* Surface */
+      --velvet-surface-page: #F7F0EA;
+      --velvet-surface-container: #FFFAF5;
+      --velvet-surface-forms: #FDFDFD;
+      --velvet-surface-forms-active: #E9DFE7;
+      --velvet-surface-disabled: #E3DDE1;
+      --velvet-surface-neutral-variant: #F7F0F5;
+      --velvet-surface-neutral-default-subtle: #E9DFE7;
+      --velvet-surface-neutral-default-subtle-active: #E3DDE1;
+
+      /* Surface/primary */
+      --velvet-surface-primary-default: #B84BAA;
+      --velvet-surface-primary-hover: #8E3D86;
+      --velvet-surface-primary-subtle: #F9D7FF;
+      --velvet-surface-primary-subtle-hover: #EC84FF;
+
+      /* Surface/status */
+      --velvet-surface-success-subtle: #F0FFF6;
+      --velvet-surface-success-subtle-active: #B8F2D0;
+      --velvet-surface-warning-subtle: #FFFBEB;
+      --velvet-surface-warning-subtle-active: #FDE68A;
+      --velvet-surface-destructive-subtle: #FFF1F1;
+      --velvet-surface-destructive-subtle-active: #FFC7C7;
+
+      /* Border */
+      --velvet-border-disabled: #CBC3C9;
+      --velvet-border-focus: #E57CD8;
+      --velvet-border-error: #B91C1C;
+
+      /* color/neutral/90 — shadow/focus base */
+      --velvet-color-neutral-90: #251E25;
+
+      /* Color/Primary/Transparent/20 */
+      --velvet-color-primary-transparent-20: rgb(184 75 170 / 0.2);
+
+      /* shadow/focus/primary/default */
+      --velvet-focus-ring-color: rgb(184 75 170 / 0.3);
+      /* shadow/focus/destructive/default */
+      --velvet-focus-ring-destructive-color: rgb(185 28 28 / 0.3);
+
+      /* Text/style sizes */
+      --velvet-text-heading-md: 48px;
+      --velvet-text-heading-sm: 36px;
+      --velvet-text-heading-xs: 24px;
+      --velvet-text-title-xl: 20px;
+      --velvet-text-title-sm: 14px;
+      --velvet-text-body-md: 16px;
+      --velvet-text-body-sm: 14px;
+      --velvet-text-body-xs: 12px;
+      --velvet-line-height-body-sm: 1.43;
+
+      /* Effects composed from shadow/* + raw-size/* */
+      --velvet-shadow-xs: 0 var(--velvet-size-1) var(--velvet-size-2) color-mix(in srgb, var(--velvet-color-neutral-90) 6%, transparent);
+      --velvet-shadow-md: 0 var(--velvet-size-12) var(--velvet-size-28) color-mix(in srgb, var(--velvet-color-neutral-90) 8%, transparent);
+      --velvet-focus-ring: 0 0 0 var(--velvet-size-4) var(--velvet-focus-ring-color);
+      --velvet-focus-ring-destructive: 0 0 0 var(--velvet-size-4) var(--velvet-focus-ring-destructive-color);
+      --velvet-input-inset: inset 0 var(--velvet-size-1) 0 color-mix(in srgb, var(--velvet-surface-forms) 68%, transparent);
+      --velvet-shadow-top-md: 0 calc(-1 * var(--velvet-size-4)) var(--velvet-size-16) color-mix(in srgb, var(--velvet-color-neutral-90) 8%, transparent);
+      --velvet-summary-bar-offset: calc(var(--velvet-size-96) + var(--velvet-size-24) + var(--velvet-size-12) * 2);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--velvet-font-family);
+      background: var(--velvet-surface-page);
+      color: var(--velvet-text-body);
+      font-size: var(--velvet-text-body-md);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    header {
+      padding: var(--velvet-size-32) var(--velvet-size-20) var(--velvet-size-18);
+      border-bottom: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      background:
+        linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--velvet-surface-forms) 72%, transparent),
+          color-mix(in srgb, var(--velvet-surface-container) 92%, transparent)
+        ),
+        var(--velvet-surface-container);
+    }
+
+    main {
+      width: min(1180px, calc(100% - var(--velvet-size-32)));
+      margin: 0 auto;
+      padding-bottom: calc(var(--velvet-summary-bar-offset) + var(--velvet-size-48));
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.15; letter-spacing: 0; }
+
+    h1 {
+      max-width: 900px;
+      color: var(--velvet-text-heading);
+      font-size: clamp(var(--velvet-text-heading-xs), 3vw, var(--velvet-text-heading-md));
+      font-weight: 800;
+    }
+
+    h2 {
+      color: var(--velvet-text-heading);
+      font-size: var(--velvet-text-title-xl);
+      font-weight: 800;
+      margin-bottom: var(--velvet-size-16);
+    }
+
+    h3 {
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-title-sm);
+      font-weight: 800;
+      margin-bottom: var(--velvet-size-10);
+    }
+
+    p { margin: 0; color: var(--velvet-text-subtle); }
+
+    a {
+      color: var(--velvet-text-highlight);
+      font-weight: 700;
+      text-decoration-color: var(--velvet-color-primary-transparent-20);
+      text-underline-offset: var(--velvet-size-4);
+    }
+
+    a:hover { color: var(--velvet-text-primary-hover); }
+
+    .intro {
+      width: min(1180px, calc(100% - var(--velvet-size-32)));
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--velvet-size-12);
+    }
+
+    .intro p {
+      max-width: 840px;
+      font-size: var(--velvet-text-body-md);
+      font-weight: 500;
+    }
+
+    .summary-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: minmax(220px, 250px) auto;
+      gap: var(--velvet-size-12);
+      align-items: center;
+      justify-content: end;
+      padding: var(--velvet-size-12) var(--velvet-size-16);
+      background: var(--velvet-surface-container);
+      border-top: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      box-shadow: var(--velvet-shadow-top-md);
+    }
+
+    @media (min-width: 1212px) {
+      .summary-bar {
+        padding-inline: calc((100% - 1180px) / 2);
+      }
+    }
+
+    .metric, section {
+      background: var(--velvet-surface-container);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-8);
+      box-shadow: var(--velvet-shadow-xs);
+    }
+
+    .metric {
+      padding: var(--velvet-size-16) var(--velvet-size-18);
+      min-height: var(--velvet-size-96);
+      display: grid;
+      align-content: space-between;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--velvet-text-subtle);
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      margin-bottom: var(--velvet-size-8);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(var(--velvet-text-title-xl), 2vw, var(--velvet-text-heading-xs));
+      color: var(--velvet-text-heading);
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .monthly-summary__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--velvet-size-12);
+    }
+
+    .monthly-summary .metric:last-child {
+      background: var(--velvet-surface-primary-default);
+      border-color: var(--velvet-surface-primary-default);
+      box-shadow: var(--velvet-shadow-md);
+    }
+
+    .monthly-summary .metric:last-child span,
+    .monthly-summary .metric:last-child strong {
+      color: var(--velvet-text-on-color-heading);
+    }
+
+    .primary-action {
+      min-height: var(--velvet-size-56);
+      padding: var(--velvet-size-14) var(--velvet-size-24);
+      border: var(--velvet-size-1) solid var(--velvet-surface-primary-default);
+      border-radius: var(--velvet-size-8);
+      background: var(--velvet-surface-primary-default);
+      color: var(--velvet-text-on-color-heading);
+      box-shadow: var(--velvet-shadow-xs);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .primary-action:disabled {
+      border-color: var(--velvet-border-disabled);
+      background: var(--velvet-surface-disabled);
+      color: var(--velvet-text-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    section {
+      padding: var(--velvet-size-20);
+      margin: var(--velvet-size-16) 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--velvet-size-16);
+    }
+
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .month-data[data-currency="cop"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .month-data-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--velvet-size-12);
+      margin-bottom: var(--velvet-size-16);
+    }
+
+    .month-data-controls__label {
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-title-sm);
+      font-weight: 700;
+    }
+
+    .month-data {
+      align-items: start;
+    }
+
+    .month-data label {
+      align-content: start;
+    }
+
+    .label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--velvet-size-8);
+    }
+
+    .currency-switch {
+      display: inline-flex;
+      flex-shrink: 0;
+      padding: var(--velvet-size-2);
+      gap: var(--velvet-size-2);
+      background: var(--velvet-surface-neutral-variant);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+    }
+
+    .currency-switch__option {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--velvet-size-4);
+      border: 0;
+      border-radius: var(--velvet-size-4);
+      padding: var(--velvet-size-4) var(--velvet-size-10);
+      font: inherit;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      color: var(--velvet-text-caption);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .currency-flag {
+      width: var(--velvet-size-16);
+      height: var(--velvet-size-12);
+      border-radius: var(--velvet-size-2);
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 var(--velvet-size-1) color-mix(in srgb, var(--velvet-color-neutral-90) 12%, transparent);
+    }
+
+    .currency-switch__option.is-active {
+      background: var(--velvet-surface-forms);
+      color: var(--velvet-text-heading);
+      box-shadow: var(--velvet-shadow-xs);
+    }
+
+    .currency-switch__option:focus-visible {
+      outline: none;
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    .trm-field {
+      display: grid;
+      gap: var(--velvet-size-6);
+    }
+
+    .trm-field[hidden],
+    .month-data[data-currency="cop"] .trm-field {
+      display: none !important;
+    }
+
+    .trm-field > label {
+      display: grid;
+      gap: var(--velvet-size-6);
+    }
+
+    .ph-icon {
+      display: inline-block;
+      flex-shrink: 0;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .ph-icon--xs { font-size: var(--velvet-size-14); width: var(--velvet-size-14); height: var(--velvet-size-14); }
+    .ph-icon--sm { font-size: var(--velvet-size-16); width: var(--velvet-size-16); height: var(--velvet-size-16); }
+    .ph-icon--md { font-size: var(--velvet-size-20); width: var(--velvet-size-20); height: var(--velvet-size-20); }
+    .ph-icon--lg { font-size: var(--velvet-size-24); width: var(--velvet-size-24); height: var(--velvet-size-24); }
+
+    svg.ph-icon { fill: currentColor; }
+
+    .ph-icon--spin {
+      animation: ph-icon-spin 0.8s linear infinite;
+    }
+
+    @keyframes ph-icon-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .trm-refresh {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--velvet-size-6);
+      flex-shrink: 0;
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+      padding: var(--velvet-size-4) var(--velvet-size-10);
+      font: inherit;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      color: var(--velvet-text-highlight);
+      background: var(--velvet-surface-forms);
+      cursor: pointer;
+      box-shadow: var(--velvet-shadow-xs);
+    }
+
+    .trm-refresh:hover {
+      border-color: var(--velvet-border-disabled);
+      color: var(--velvet-text-primary-hover);
+    }
+
+    .trm-refresh:focus-visible {
+      outline: none;
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    .trm-refresh:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .trm-date-row {
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 600;
+      color: var(--velvet-text-subtle);
+    }
+
+    .trm-status {
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .trm-status.is-loading { color: var(--velvet-text-subtle); }
+    .trm-status.is-official { color: var(--velvet-text-status-success); }
+    .trm-status.is-manual { color: var(--velvet-text-status-warning); }
+    .trm-status.is-error { color: var(--velvet-text-status-destructive); }
+
+    label {
+      display: grid;
+      gap: var(--velvet-size-6);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-title-sm);
+      font-weight: 800;
+    }
+
+    .field-helper {
+      margin: 0;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--velvet-text-subtle);
+    }
+
+    .field-error {
+      margin: 0;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--velvet-text-status-destructive);
+    }
+
+    input:not([type="checkbox"]) {
+      width: 100%;
+      height: var(--velvet-size-40);
+      min-height: var(--velvet-size-40);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+      padding: var(--velvet-size-12);
+      color: var(--velvet-text-body);
+      background: var(--velvet-surface-forms);
+      font: inherit;
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
+      line-height: var(--velvet-line-height-body-sm);
+      box-shadow: var(--velvet-input-inset);
+    }
+
+    select {
+      width: 100%;
+      height: var(--velvet-size-40);
+      min-height: var(--velvet-size-40);
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+      padding: 0 var(--velvet-size-32) 0 var(--velvet-size-12);
+      color: var(--velvet-text-body);
+      background-color: var(--velvet-surface-forms);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23867984' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right var(--velvet-size-10) center;
+      background-size: var(--velvet-size-16) var(--velvet-size-16);
+      font: inherit;
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
+      line-height: calc(var(--velvet-size-40) - var(--velvet-size-2));
+      box-shadow: var(--velvet-input-inset);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+
+    input:not([type="checkbox"])::placeholder {
+      color: var(--velvet-text-subtle);
+      font-weight: 500;
+    }
+
+    input[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input:not([type="checkbox"]):hover:not(:disabled),
+    select:hover:not(:disabled) {
+      border-color: var(--velvet-border-disabled);
+    }
+
+    input:not([type="checkbox"]):not(:disabled):active {
+      background: var(--velvet-surface-forms-active);
+      border-color: var(--velvet-surface-neutral-default-subtle-active);
+    }
+
+    select:not(:disabled):active {
+      background-color: var(--velvet-surface-forms-active);
+      border-color: var(--velvet-surface-neutral-default-subtle-active);
+    }
+
+    input:not([type="checkbox"]):focus-visible {
+      outline: none;
+      border-color: var(--velvet-border-focus);
+      background: var(--velvet-surface-forms);
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    select:focus-visible {
+      outline: none;
+      border-color: var(--velvet-border-focus);
+      background-color: var(--velvet-surface-forms);
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    input:not([type="checkbox"]):disabled {
+      background: var(--velvet-surface-disabled);
+      border-color: var(--velvet-border-disabled);
+      color: var(--velvet-text-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    select:disabled {
+      background-color: var(--velvet-surface-disabled);
+      border-color: var(--velvet-border-disabled);
+      color: var(--velvet-text-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    input:not([type="checkbox"]).is-error {
+      border-color: var(--velvet-border-error);
+      background: var(--velvet-surface-destructive-subtle);
+    }
+
+    select.is-error {
+      border-color: var(--velvet-border-error);
+      background-color: var(--velvet-surface-destructive-subtle);
+    }
+
+    input:not([type="checkbox"]).is-error:focus-visible {
+      border-color: var(--velvet-border-error);
+      box-shadow: var(--velvet-focus-ring-destructive);
+    }
+
+    select.is-error:focus-visible {
+      border-color: var(--velvet-border-error);
+      background-color: var(--velvet-surface-destructive-subtle);
+      box-shadow: var(--velvet-focus-ring-destructive);
+    }
+
+    .currency-input {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-6);
+      background: var(--velvet-surface-forms);
+      box-shadow: var(--velvet-input-inset);
+      overflow: hidden;
+    }
+
+    .currency-input:hover:not(:has(input:disabled)) {
+      border-color: var(--velvet-border-disabled);
+    }
+
+    .currency-input:has(input:not(:disabled):active) {
+      background: var(--velvet-surface-forms-active);
+      border-color: var(--velvet-surface-neutral-default-subtle-active);
+    }
+
+    .currency-input:focus-within:has(:focus-visible) {
+      border-color: var(--velvet-border-focus);
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    .currency-input:has(input:disabled) {
+      background: var(--velvet-surface-disabled);
+      border-color: var(--velvet-border-disabled);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    .currency-input.is-error {
+      border-color: var(--velvet-border-error);
+      background: var(--velvet-surface-destructive-subtle);
+    }
+
+    .currency-input.is-error:focus-within:has(:focus-visible) {
+      border-color: var(--velvet-border-error);
+      box-shadow: var(--velvet-focus-ring-destructive);
+    }
+
+    .currency-input__prefix,
+    .currency-input__suffix {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      min-width: var(--velvet-size-40);
+      padding: 0 var(--velvet-size-12);
+      color: var(--velvet-text-subtle);
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      background: var(--velvet-surface-neutral-default-subtle);
+      border-right: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+    }
+
+    .currency-input__suffix {
+      border-right: 0;
+      border-left: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+    }
+
+    .currency-input:has(input:disabled) .currency-input__prefix,
+    .currency-input:has(input:disabled) .currency-input__suffix {
+      background: var(--velvet-surface-disabled);
+      color: var(--velvet-text-disabled);
+    }
+
+    .currency-input input {
+      flex: 1;
+      min-width: 0;
+      width: auto;
+      height: var(--velvet-size-40);
+      min-height: var(--velvet-size-40);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      padding: var(--velvet-size-12);
+      color: var(--velvet-text-body);
+      font-weight: 500;
+      line-height: var(--velvet-line-height-body-sm);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .currency-input input:disabled {
+      background: transparent;
+      color: var(--velvet-text-disabled);
+    }
+
+    .currency-input input:hover,
+    .currency-input input:focus,
+    .currency-input input:focus-visible,
+    .currency-input input:active {
+      border-color: transparent;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: var(--velvet-size-10);
+      min-height: var(--velvet-size-40);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
+    }
+
+    .toggle-row input {
+      width: var(--velvet-size-18);
+      height: var(--velvet-size-18);
+      min-height: var(--velvet-size-18);
+      accent-color: var(--velvet-surface-primary-default);
+      box-shadow: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: var(--velvet-text-body-sm);
+      overflow: hidden;
+      border: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      border-radius: var(--velvet-size-8);
+    }
+
+    th, td {
+      border-bottom: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      padding: var(--velvet-size-12);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--velvet-text-subtle);
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 800;
+      background: var(--velvet-surface-neutral-variant);
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    td { color: var(--velvet-text-caption); background: var(--velvet-surface-forms); font-weight: 500; }
+    td strong { color: var(--velvet-text-heading); font-weight: 800; }
+    td:last-child, th:last-child { text-align: right; }
+
+    .note {
+      border-radius: var(--velvet-size-8);
+      padding: var(--velvet-size-12) var(--velvet-size-14);
+      margin-top: var(--velvet-size-12);
+      color: var(--velvet-text-status-success);
+      background: var(--velvet-surface-success-subtle);
+      border: var(--velvet-size-1) solid var(--velvet-surface-success-subtle-active);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 600;
+    }
+
+    .note.warning {
+      color: var(--velvet-text-status-warning);
+      background: var(--velvet-surface-warning-subtle);
+      border-color: var(--velvet-surface-warning-subtle-active);
+    }
+
+    .note.danger {
+      color: var(--velvet-text-status-destructive);
+      background: var(--velvet-surface-destructive-subtle);
+      border-color: var(--velvet-surface-destructive-subtle-active);
+    }
+
+    .small {
+      font-size: var(--velvet-text-body-sm);
+      color: var(--velvet-text-subtle);
+      font-weight: 500;
+    }
+
+    .result-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--velvet-size-10);
+    }
+
+    .result-line {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--velvet-size-10);
+      padding: var(--velvet-size-10) 0;
+      border-bottom: var(--velvet-size-1) solid var(--velvet-surface-neutral-default-subtle);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
+    }
+
+    .result-line strong {
+      text-align: right;
+      overflow-wrap: anywhere;
+      color: var(--velvet-text-heading);
+      font-weight: 800;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: var(--velvet-size-28);
+      padding: var(--velvet-size-4) var(--velvet-size-10);
+      border-radius: var(--velvet-size-9999);
+      background: var(--velvet-surface-primary-subtle);
+      color: var(--velvet-text-highlight);
+      border: var(--velvet-size-1) solid var(--velvet-surface-primary-subtle-hover);
+      font-weight: 800;
+      font-size: var(--velvet-text-body-xs);
+    }
+
+    .steps {
+      display: grid;
+      gap: var(--velvet-size-10);
+      padding-left: var(--velvet-size-18);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
+    }
+
+    .steps li::marker {
+      color: var(--velvet-surface-primary-default);
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .grid, .three, .result-list, .monthly-summary__grid { grid-template-columns: 1fr; }
+      .month-data,
+      .month-data[data-currency="cop"] { grid-template-columns: 1fr; }
+      .month-data-controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .summary-bar {
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+      }
+      .summary-bar .metric {
+        min-height: var(--velvet-size-72);
+        padding: var(--velvet-size-12);
+      }
+      .summary-bar .primary-action { width: 100%; }
+      :root { --velvet-summary-bar-offset: calc(var(--velvet-size-72) + var(--velvet-size-56) + var(--velvet-size-12) * 3); }
+      header { padding-top: var(--velvet-size-24); }
+      main, .intro { width: min(calc(100% - var(--velvet-size-24)), 1180px); }
+      section { padding: var(--velvet-size-16); }
+      table { font-size: var(--velvet-text-body-xs); }
+      th, td { padding: var(--velvet-size-8) var(--velvet-size-8); }
+      h1 { font-size: var(--velvet-text-heading-xs); }
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-UvcXUL3R.js"></script>
+</head>
+<body>
+  <header>
+    <div class="intro">
+      <span class="pill">Colombia 2026 · editable</span>
+      <h1>Guía y calculadora mensual para contratistas independientes en Colombia</h1>
+      <p>Usa el valor bruto mensual sin IVA, la TRM del pago y tus deducciones reales. La herramienta estima aportes a seguridad social, una retención de referencia y reservas personales para reemplazar prestaciones laborales.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Datos del mes</h2>
+      <div class="month-data-controls">
+        <span class="month-data-controls__label">Moneda de honorarios</span>
+        <span class="currency-switch" role="group" aria-label="Moneda de honorarios">
+          <button type="button" class="currency-switch__option is-active" data-currency="cop" aria-pressed="true">
+            <svg class="currency-flag" viewBox="0 0 16 12" aria-hidden="true">
+              <rect width="16" height="6" fill="#FCD116"/>
+              <rect y="6" width="16" height="3" fill="#003893"/>
+              <rect y="9" width="16" height="3" fill="#CE1126"/>
+            </svg>
+            COP
+          </button>
+          <button type="button" class="currency-switch__option" data-currency="usd" aria-pressed="false">
+            <svg class="currency-flag" viewBox="0 0 16 12" aria-hidden="true">
+              <rect width="16" height="12" fill="#B22234"/>
+              <path stroke="#fff" stroke-width="1.15" d="M0 1.15H16M0 3.46H16M0 5.77H16M0 8.08H16M0 10.39H16"/>
+              <rect width="6.5" height="6.9" fill="#3C3B6E"/>
+            </svg>
+            USD
+          </button>
+        </span>
+      </div>
+      <div class="grid three month-data" id="datosMesGrid" data-currency="cop">
+        <label>
+          <span id="honorariosLabelText">Honorarios del mes en COP</span>
+          <span class="currency-input">
+            <span class="currency-input__prefix" id="honorariosPrefix" aria-hidden="true">$</span>
+            <input id="honorarios" type="number" min="0" step="1000" value="3000000" inputmode="decimal">
+          </span>
+        </label>
+        <div class="trm-field" id="trmField">
+          <label>
+            <span class="label-row">
+              <span>TRM usada para convertir a COP</span>
+              <button type="button" class="trm-refresh" id="trmRefresh" title="Restaurar TRM oficial">
+                <i class="ph ph-arrow-clockwise ph-icon ph-icon--sm" id="trmRefreshIcon" aria-hidden="true"></i>
+                <span>Actualizar</span>
+              </button>
+            </span>
+            <span class="currency-input">
+              <span class="currency-input__prefix" aria-hidden="true">$</span>
+              <input id="trm" type="number" min="0" step="0.01" value="3900" inputmode="decimal">
+              <span class="currency-input__suffix" aria-hidden="true">COP</span>
+            </span>
+          </label>
+          <label class="trm-date-row">Fecha del abono
+            <input id="trmDate" type="date">
+          </label>
+          <p class="trm-status is-loading" id="trmStatus" aria-live="polite">Consultando TRM oficial…</p>
+        </div>
+        <label>Otros ingresos del mes en COP
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="otrosCop" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
+        </label>
+      </div>
+      <p class="note">Para contratos de prestación de servicios, la UGPP indica que el ingreso base parte del valor bruto mensual del contrato sin IVA. Si tu cliente extranjero no practica retención en Colombia, esta “retención” funciona como provisión propia para renta.</p>
+    </section>
+
+    <section>
+      <h2>2. Parámetros editables</h2>
+      <div class="grid three">
+        <label>UVT 2026
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="uvt" type="number" min="1" step="1" value="52374" inputmode="decimal">
+          </span>
+        </label>
+        <label>SMMLV 2026
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="smmlv" type="number" min="1" step="1" value="1750905" inputmode="decimal">
+          </span>
+        </label>
+        <label>Nivel de riesgo ARL
+          <select id="arlNivel">
+            <option value="0.00522">I · 0,522%</option>
+            <option value="0.01044">II · 1,044%</option>
+            <option value="0.02436">III · 2,436%</option>
+            <option value="0.04350">IV · 4,350%</option>
+            <option value="0.06960">V · 6,960%</option>
+            <option value="0">No aplicar ARL</option>
+          </select>
+        </label>
+        <label>Caja de compensación voluntaria
+          <select id="cajaRate">
+            <option value="0">No aportar</option>
+            <option value="0.006">0,6%</option>
+            <option value="0.02">2%</option>
+          </select>
+        </label>
+        <label>Reserva personal de emergencia
+          <input id="reservaExtraPct" type="number" min="0" max="100" step="0.1" value="5">
+        </label>
+        <label>Método de impuesto
+          <select id="taxMode">
+            <option value="art383">Tabla Art. 383 estimada</option>
+            <option value="flat10">10% sobre ingreso</option>
+            <option value="flat11">11% sobre ingreso</option>
+            <option value="none">No separar impuesto</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Deducciones para estimar retención</h2>
+      <div class="grid three">
+        <label>Dependientes económicos
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="dependientes" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
+        </label>
+        <label>Medicina prepagada
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="prepagada" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
+        </label>
+        <label>Intereses de vivienda
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="vivienda" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
+        </label>
+        <label>AFC / pensión voluntaria
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="voluntarios" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
+        </label>
+        <label>Retención real ya practicada
+          <span class="currency-input">
+            <span class="currency-input__prefix" aria-hidden="true">$</span>
+            <input id="retencionReal" type="number" min="0" step="1000" value="0" inputmode="decimal">
+          </span>
+        </label>
+        <label class="toggle-row">
+          <input id="renta25" type="checkbox" checked>
+          Aplicar renta exenta estimada del 25%
+        </label>
+      </div>
+      <p class="note warning">La retención por Art. 383 aquí es una estimación mensual. La declaración anual puede cambiar por topes, otros ingresos, costos no aplicables a prestación de servicios, patrimonio, deducciones soportadas y reglas vigentes al declarar.</p>
+    </section>
+
+    <section class="monthly-summary" aria-live="polite" aria-label="Resumen mensual">
+      <h2>Resumen mensual</h2>
+      <div class="monthly-summary__grid">
+        <div class="metric"><span>Ingreso mensual en COP</span><strong id="mIngreso">$0</strong></div>
+        <div class="metric"><span>Aportes PILA estimados</span><strong id="mAportes">$0</strong></div>
+        <div class="metric"><span>Retención / provisión impuesto</span><strong id="mRetencion">$0</strong></div>
+        <div class="metric"><span>Disponible después de separar</span><strong id="mDisponible">$0</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Resultado automático del mes</h2>
+      <div class="grid">
+        <div>
+          <h3>Aportes obligatorios y voluntarios</h3>
+          <table>
+            <tbody id="tablaAportes"></tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Separación recomendada</h3>
+          <table>
+            <tbody id="tablaReservas"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="note" id="estado"></div>
+    </section>
+
+    <section>
+      <h2>5. Guía mensual sin pensarlo tanto</h2>
+      <ol class="steps">
+        <li>Cuando te paguen, toma el valor en USD y conviértelo con la TRM real del abono o con la tasa que uses contablemente.</li>
+        <li>Paga seguridad social mes vencido en PILA: salud, pensión y ARL si aplica. Guarda el soporte.</li>
+        <li>Separa la provisión de impuesto calculada. Si el cliente ya te retuvo, registra ese valor en “retención real ya practicada”.</li>
+        <li>Mueve a una cuenta aparte las reservas de vacaciones, prima, cesantías e intereses. No son prestaciones legales en tu contrato, son tu colchón personal.</li>
+        <li>Actualiza UVT y SMMLV al iniciar cada año, o antes si una norma cambia el valor vigente.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>6. Fórmulas usadas</h2>
+      <div class="result-list">
+        <div class="result-line"><span>Ingreso COP</span><strong id="formulaIngreso">USD × TRM + otros ingresos</strong></div>
+        <div class="result-line"><span>IBC prestación de servicios</span><strong>40% del ingreso, mínimo 1 SMMLV y máximo 25 SMMLV si estás obligado</strong></div>
+        <div class="result-line"><span>Salud</span><strong>IBC × 12,5%</strong></div>
+        <div class="result-line"><span>Pensión</span><strong>IBC × 16%</strong></div>
+        <div class="result-line"><span>ARL</span><strong>IBC × nivel de riesgo</strong></div>
+        <div class="result-line"><span>Base retención estimada</span><strong>Ingreso - salud - pensión - beneficios permitidos</strong></div>
+        <div class="result-line"><span>Beneficios en retención</span><strong>Limitados al 40% del ingreso neto para este cálculo</strong></div>
+        <div class="result-line"><span>Reservas personales</span><strong>Porcentajes de referencia sobre ingreso COP</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Fuentes y notas</h2>
+      <p class="small">Fuentes revisadas el 5 de junio de 2026: UGPP sobre independientes y PILA; ABC UGPP para contrato de prestación de servicios; Estatuto Tributario, artículos 383 y 388; Decreto 159 de 2026 sobre SMMLV; referencias DIAN sobre UVT 2026. Esta guía no reemplaza a un contador, especialmente si tienes varios contratos, ingresos de fuente extranjera, residencia fiscal fuera de Colombia, IVA, SIMPLE, empleados contratados o deducciones altas.</p>
+      <p class="small">
+        Enlaces:
+        <a href="https://www.ugpp.gov.co/seguridad-social-trabajadores-independientes/">UGPP seguridad social independientes</a> ·
+        <a href="https://www.ugpp.gov.co/wp-content/uploads/2026/01/ABC-Trabajador-Independiente-Contrato-Prestacion-Servicios.pdf">ABC UGPP prestación de servicios</a> ·
+        <a href="https://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr015.html">Estatuto Tributario Art. 383 y 388</a> ·
+        <a href="https://normograma.mintic.gov.co/mintic/compilacion/docs/decreto_0159_2026.htm">Decreto 159 de 2026</a>.
+      </p>
+    </section>
+  </main>
+
+  <aside class="summary-bar" aria-live="polite" aria-label="Pago de planilla">
+    <div class="metric"><span>Aportes PILA estimados</span><strong data-summary-value="aportes">$0</strong></div>
+    <button type="button" class="primary-action" disabled>Pagar planilla</button>
+  </aside>
+
+</body>
+</html>
