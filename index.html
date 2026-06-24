@@ -10,285 +10,528 @@
   <style>
     :root {
       color-scheme: light;
-      --surface-page: #F7F0EA;
-      --surface-container: #FFFAF5;
-      --surface-form: #FDFDFD;
-      --surface-form-active: #E9DFE7;
-      --surface-subtle: #F7F0F5;
-      --surface-primary: #B84BAA;
-      --surface-primary-hover: #8E3D86;
-      --surface-primary-soft: #F9D7FF;
-      --surface-success-soft: #F0FFF6;
-      --surface-warning-soft: #FFFBEB;
-      --surface-danger-soft: #FFF1F1;
-      --text-heading: #342B33;
-      --text-body: #423841;
-      --text-caption: #50464F;
-      --text-subtle: #867984;
-      --text-on-primary: #FDFDFD;
-      --text-primary: #8E3D86;
-      --text-success: #076238;
-      --text-warning: #D97706;
-      --text-danger: #A31919;
-      --border-default: #E9DFE7;
-      --border-strong: #CBC3C9;
-      --border-focus: #E57CD8;
-      --radius-sm: 6px;
-      --radius-md: 8px;
-      --radius-pill: 9999px;
-      --shadow-xs: 0 1px 2px rgba(37, 30, 37, 0.06);
-      --shadow-md: 0 12px 28px rgba(37, 30, 37, 0.08);
-      --focus-ring: 0 0 0 4px rgba(184, 75, 170, 0.22);
+
+      /* Font/family */
+      --velvet-font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      /* raw-size */
+      --velvet-size-0: 0px;
+      --velvet-size-1: 1px;
+      --velvet-size-2: 2px;
+      --velvet-size-4: 4px;
+      --velvet-size-6: 6px;
+      --velvet-size-8: 8px;
+      --velvet-size-10: 10px;
+      --velvet-size-12: 12px;
+      --velvet-size-14: 14px;
+      --velvet-size-16: 16px;
+      --velvet-size-18: 18px;
+      --velvet-size-20: 20px;
+      --velvet-size-24: 24px;
+      --velvet-size-28: 28px;
+      --velvet-size-32: 32px;
+      --velvet-size-36: 36px;
+      --velvet-size-40: 40px;
+      --velvet-size-48: 48px;
+      --velvet-size-56: 56px;
+      --velvet-size-72: 72px;
+      --velvet-size-80: 80px;
+      --velvet-size-96: 96px;
+      --velvet-size-9999: 9999px;
+
+      /* Text/color/foreground-map */
+      --velvet-text-heading: #342B33;
+      --velvet-text-body: #423841;
+      --velvet-text-caption: #50464F;
+      --velvet-text-subtle: #867984;
+      --velvet-text-highlight: #8E3D86;
+      --velvet-text-alternative: #F7F0F5;
+
+      /* Text/color/on-color */
+      --velvet-text-on-color-heading: #FDFDFD;
+
+      /* Text/color/primary */
+      --velvet-text-primary-default: #B84BAA;
+      --velvet-text-primary-hover: #8E3D86;
+
+      /* Text/color/status */
+      --velvet-text-status-success: #076238;
+      --velvet-text-status-warning: #D97706;
+      --velvet-text-status-destructive: #A31919;
+
+      /* Surface */
+      --velvet-surface-page: #F7F0EA;
+      --velvet-surface-container: #FFFAF5;
+      --velvet-surface-forms: #FDFDFD;
+      --velvet-surface-forms-active: #E9DFE7;
+      --velvet-surface-neutral-subtle: #F7F0F5;
+
+      /* Surface/primary */
+      --velvet-surface-primary-default: #B84BAA;
+      --velvet-surface-primary-hover: #8E3D86;
+      --velvet-surface-primary-subtle: #F9D7FF;
+      --velvet-surface-primary-subtle-hover: #EC84FF;
+
+      /* Surface/status */
+      --velvet-surface-success-subtle: #F0FFF6;
+      --velvet-surface-success-subtle-active: #B8F2D0;
+      --velvet-surface-warning-subtle: #FFFBEB;
+      --velvet-surface-warning-subtle-active: #FDE68A;
+      --velvet-surface-destructive-subtle: #FFF1F1;
+      --velvet-surface-destructive-subtle-active: #FFC7C7;
+
+      /* Border */
+      --velvet-border-neutral-subtle: #E9DFE7;
+      --velvet-border-disabled: #CBC3C9;
+      --velvet-border-focus: #E57CD8;
+
+      /* color/neutral/90 — shadow/focus base */
+      --velvet-color-neutral-90: #251E25;
+
+      /* Color/Primary/Transparent/20 */
+      --velvet-color-primary-transparent-20: rgb(184 75 170 / 0.2);
+
+      /* shadow/focus/primary/default */
+      --velvet-focus-ring-color: rgb(184 75 170 / 0.3);
+
+      /* Text/style sizes */
+      --velvet-text-heading-md: 48px;
+      --velvet-text-heading-sm: 36px;
+      --velvet-text-heading-xs: 24px;
+      --velvet-text-title-xl: 20px;
+      --velvet-text-title-sm: 14px;
+      --velvet-text-body-md: 16px;
+      --velvet-text-body-sm: 14px;
+      --velvet-text-body-xs: 12px;
+
+      /* Effects composed from shadow/* + raw-size/* */
+      --velvet-shadow-xs: 0 var(--velvet-size-1) var(--velvet-size-2) color-mix(in srgb, var(--velvet-color-neutral-90) 6%, transparent);
+      --velvet-shadow-md: 0 var(--velvet-size-12) var(--velvet-size-28) color-mix(in srgb, var(--velvet-color-neutral-90) 8%, transparent);
+      --velvet-focus-ring: 0 0 0 var(--velvet-size-4) var(--velvet-focus-ring-color);
+      --velvet-input-inset: inset 0 var(--velvet-size-1) 0 color-mix(in srgb, var(--velvet-surface-forms) 68%, transparent);
+      --velvet-shadow-top-md: 0 calc(-1 * var(--velvet-size-4)) var(--velvet-size-16) color-mix(in srgb, var(--velvet-color-neutral-90) 8%, transparent);
+      --velvet-summary-bar-offset: calc(var(--velvet-size-96) + var(--velvet-size-24) + var(--velvet-size-12) * 2);
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--surface-page);
-      color: var(--text-body);
+      font-family: var(--velvet-font-family);
+      background: var(--velvet-surface-page);
+      color: var(--velvet-text-body);
+      font-size: var(--velvet-text-body-md);
+      font-weight: 500;
       line-height: 1.45;
     }
 
     header {
-      padding: 32px 20px 18px;
-      border-bottom: 1px solid var(--border-default);
+      padding: var(--velvet-size-32) var(--velvet-size-20) var(--velvet-size-18);
+      border-bottom: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
       background:
-        linear-gradient(180deg, rgba(253, 253, 253, 0.72), rgba(255, 250, 245, 0.92)),
-        var(--surface-container);
+        linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--velvet-surface-forms) 72%, transparent),
+          color-mix(in srgb, var(--velvet-surface-container) 92%, transparent)
+        ),
+        var(--velvet-surface-container);
     }
 
     main {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto 48px;
+      width: min(1180px, calc(100% - var(--velvet-size-32)));
+      margin: 0 auto;
+      padding-bottom: calc(var(--velvet-summary-bar-offset) + var(--velvet-size-48));
     }
 
     h1, h2, h3 { margin: 0; line-height: 1.15; letter-spacing: 0; }
 
     h1 {
       max-width: 900px;
-      color: var(--text-heading);
-      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--velvet-text-heading);
+      font-size: clamp(var(--velvet-text-heading-xs), 3vw, var(--velvet-text-heading-md));
       font-weight: 800;
     }
 
     h2 {
-      color: var(--text-heading);
-      font-size: 1.25rem;
+      color: var(--velvet-text-heading);
+      font-size: var(--velvet-text-title-xl);
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: var(--velvet-size-16);
     }
 
     h3 {
-      color: var(--text-caption);
-      font-size: 0.94rem;
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-title-sm);
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: var(--velvet-size-10);
     }
 
-    p { margin: 0; color: var(--text-subtle); }
+    p { margin: 0; color: var(--velvet-text-subtle); }
 
     a {
-      color: var(--text-primary);
+      color: var(--velvet-text-highlight);
       font-weight: 700;
-      text-decoration-color: rgba(184, 75, 170, 0.32);
-      text-underline-offset: 3px;
+      text-decoration-color: var(--velvet-color-primary-transparent-20);
+      text-underline-offset: var(--velvet-size-4);
     }
 
-    a:hover { color: var(--surface-primary-hover); }
+    a:hover { color: var(--velvet-text-primary-hover); }
 
     .intro {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1180px, calc(100% - var(--velvet-size-32)));
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--velvet-size-12);
     }
 
     .intro p {
       max-width: 840px;
-      font-size: 1rem;
+      font-size: var(--velvet-text-body-md);
+      font-weight: 500;
     }
 
     .summary-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin: 20px 0 16px;
+      gap: var(--velvet-size-12);
+      padding: var(--velvet-size-12) var(--velvet-size-16);
+      background: var(--velvet-surface-container);
+      border-top: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      box-shadow: var(--velvet-shadow-top-md);
+    }
+
+    @media (min-width: 1212px) {
+      .summary-bar {
+        padding-inline: calc((100% - 1180px) / 2);
+      }
     }
 
     .metric, section {
-      background: var(--surface-container);
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-xs);
+      background: var(--velvet-surface-container);
+      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-radius: var(--velvet-size-8);
+      box-shadow: var(--velvet-shadow-xs);
     }
 
     .metric {
-      padding: 16px 18px;
-      min-height: 100px;
+      padding: var(--velvet-size-16) var(--velvet-size-18);
+      min-height: var(--velvet-size-96);
       display: grid;
       align-content: space-between;
     }
 
     .metric span {
       display: block;
-      color: var(--text-subtle);
-      font-size: 0.78rem;
+      color: var(--velvet-text-subtle);
+      font-size: var(--velvet-text-body-xs);
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: var(--velvet-size-8);
     }
 
     .metric strong {
       display: block;
-      font-size: clamp(1.15rem, 2vw, 1.65rem);
-      color: var(--text-heading);
+      font-size: clamp(var(--velvet-text-title-xl), 2vw, var(--velvet-text-heading-xs));
+      color: var(--velvet-text-heading);
       font-weight: 800;
       overflow-wrap: anywhere;
     }
 
     .metric:last-child {
-      background: var(--surface-primary);
-      border-color: var(--surface-primary);
-      box-shadow: var(--shadow-md);
+      background: var(--velvet-surface-primary-default);
+      border-color: var(--velvet-surface-primary-default);
+      box-shadow: var(--velvet-shadow-md);
     }
 
     .metric:last-child span,
     .metric:last-child strong {
-      color: var(--text-on-primary);
+      color: var(--velvet-text-on-color-heading);
     }
 
     section {
-      padding: 20px;
-      margin: 16px 0;
+      padding: var(--velvet-size-20);
+      margin: var(--velvet-size-16) 0;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: var(--velvet-size-16);
     }
 
     .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-    label {
-      display: grid;
-      gap: 6px;
-      color: var(--text-caption);
-      font-size: 0.875rem;
+    .month-data[data-currency="cop"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .month-data-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--velvet-size-12);
+      margin-bottom: var(--velvet-size-16);
+    }
+
+    .month-data-controls__label {
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-title-sm);
       font-weight: 700;
     }
 
-    input, select {
-      width: 100%;
-      min-height: 44px;
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-sm);
-      padding: 10px 11px;
-      color: var(--text-heading);
-      background: var(--surface-form);
-      font: inherit;
-      font-weight: 600;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
+    .month-data {
+      align-items: start;
     }
 
-    input:focus, select:focus {
+    .month-data label {
+      align-content: start;
+    }
+
+    .label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--velvet-size-8);
+    }
+
+    .currency-switch {
+      display: inline-flex;
+      flex-shrink: 0;
+      padding: var(--velvet-size-2);
+      gap: var(--velvet-size-2);
+      background: var(--velvet-surface-neutral-subtle);
+      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-radius: var(--velvet-size-6);
+    }
+
+    .currency-switch__option {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--velvet-size-4);
+      border: 0;
+      border-radius: var(--velvet-size-4);
+      padding: var(--velvet-size-4) var(--velvet-size-10);
+      font: inherit;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      color: var(--velvet-text-caption);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .currency-flag {
+      width: var(--velvet-size-16);
+      height: var(--velvet-size-12);
+      border-radius: var(--velvet-size-2);
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 var(--velvet-size-1) color-mix(in srgb, var(--velvet-color-neutral-90) 12%, transparent);
+    }
+
+    .currency-switch__option.is-active {
+      background: var(--velvet-surface-forms);
+      color: var(--velvet-text-heading);
+      box-shadow: var(--velvet-shadow-xs);
+    }
+
+    .currency-switch__option:focus-visible {
       outline: none;
-      border-color: var(--border-focus);
-      box-shadow: var(--focus-ring);
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    .trm-field {
+      display: grid;
+      gap: var(--velvet-size-6);
+    }
+
+    .trm-field[hidden],
+    .month-data[data-currency="cop"] .trm-field {
+      display: none !important;
+    }
+
+    .trm-field > label {
+      display: grid;
+      gap: var(--velvet-size-6);
+    }
+
+    .trm-refresh {
+      flex-shrink: 0;
+      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-radius: var(--velvet-size-6);
+      padding: var(--velvet-size-4) var(--velvet-size-10);
+      font: inherit;
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 700;
+      color: var(--velvet-text-highlight);
+      background: var(--velvet-surface-forms);
+      cursor: pointer;
+      box-shadow: var(--velvet-shadow-xs);
+    }
+
+    .trm-refresh:hover {
+      border-color: var(--velvet-border-disabled);
+      color: var(--velvet-text-primary-hover);
+    }
+
+    .trm-refresh:focus-visible {
+      outline: none;
+      box-shadow: var(--velvet-focus-ring);
+    }
+
+    .trm-refresh:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .trm-date-row {
+      font-size: var(--velvet-text-body-xs);
+      font-weight: 600;
+      color: var(--velvet-text-subtle);
+    }
+
+    .trm-status {
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .trm-status.is-loading { color: var(--velvet-text-subtle); }
+    .trm-status.is-official { color: var(--velvet-text-status-success); }
+    .trm-status.is-manual { color: var(--velvet-text-status-warning); }
+    .trm-status.is-error { color: var(--velvet-text-status-destructive); }
+
+    label {
+      display: grid;
+      gap: var(--velvet-size-6);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-title-sm);
+      font-weight: 700;
+    }
+
+    input:not([type="checkbox"]), select {
+      width: 100%;
+      height: var(--velvet-size-40);
+      min-height: var(--velvet-size-40);
+      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-radius: var(--velvet-size-6);
+      padding: var(--velvet-size-10) var(--velvet-size-12);
+      color: var(--velvet-text-heading);
+      background: var(--velvet-surface-forms);
+      font: inherit;
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 600;
+      box-shadow: var(--velvet-input-inset);
+    }
+
+    input:not([type="checkbox"]):hover, select:hover {
+      border-color: var(--velvet-border-disabled);
+    }
+
+    input:not([type="checkbox"]):focus, select:focus {
+      outline: none;
+      border-color: var(--velvet-border-focus);
+      background: var(--velvet-surface-forms);
+      box-shadow: var(--velvet-focus-ring);
     }
 
     .toggle-row {
       display: flex;
       align-items: center;
-      gap: 10px;
-      min-height: 44px;
-      color: var(--text-caption);
-      font-size: 0.93rem;
+      gap: var(--velvet-size-10);
+      min-height: var(--velvet-size-40);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
     }
 
     .toggle-row input {
-      width: 18px;
-      height: 18px;
-      min-height: 18px;
-      accent-color: var(--surface-primary);
+      width: var(--velvet-size-18);
+      height: var(--velvet-size-18);
+      min-height: var(--velvet-size-18);
+      accent-color: var(--velvet-surface-primary-default);
+      box-shadow: none;
     }
 
     table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
-      font-size: 0.94rem;
+      font-size: var(--velvet-text-body-sm);
       overflow: hidden;
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-md);
+      border: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      border-radius: var(--velvet-size-8);
     }
 
     th, td {
-      border-bottom: 1px solid var(--border-default);
-      padding: 11px 12px;
+      border-bottom: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      padding: var(--velvet-size-12);
       text-align: left;
       vertical-align: top;
     }
 
     th {
-      color: var(--text-subtle);
+      color: var(--velvet-text-subtle);
+      font-size: var(--velvet-text-body-xs);
       font-weight: 800;
-      background: var(--surface-subtle);
+      background: var(--velvet-surface-neutral-subtle);
     }
 
     tr:last-child td { border-bottom: 0; }
-    td { color: var(--text-caption); background: var(--surface-form); }
-    td strong { color: var(--text-heading); }
+    td { color: var(--velvet-text-caption); background: var(--velvet-surface-forms); font-weight: 500; }
+    td strong { color: var(--velvet-text-heading); font-weight: 800; }
     td:last-child, th:last-child { text-align: right; }
 
     .note {
-      border-radius: var(--radius-md);
-      padding: 12px 14px;
-      margin-top: 12px;
-      color: var(--text-success);
-      background: var(--surface-success-soft);
-      border: 1px solid #B8F2D0;
+      border-radius: var(--velvet-size-8);
+      padding: var(--velvet-size-12) var(--velvet-size-14);
+      margin-top: var(--velvet-size-12);
+      color: var(--velvet-text-status-success);
+      background: var(--velvet-surface-success-subtle);
+      border: var(--velvet-size-1) solid var(--velvet-surface-success-subtle-active);
+      font-size: var(--velvet-text-body-sm);
       font-weight: 600;
     }
 
-    .warning {
-      color: var(--text-warning);
-      background: var(--surface-warning-soft);
-      border-color: #FDE68A;
+    .note.warning {
+      color: var(--velvet-text-status-warning);
+      background: var(--velvet-surface-warning-subtle);
+      border-color: var(--velvet-surface-warning-subtle-active);
     }
 
-    .danger {
-      color: var(--text-danger);
-      background: var(--surface-danger-soft);
-      border-color: #FFC7C7;
+    .note.danger {
+      color: var(--velvet-text-status-destructive);
+      background: var(--velvet-surface-destructive-subtle);
+      border-color: var(--velvet-surface-destructive-subtle-active);
     }
 
     .small {
-      font-size: 0.88rem;
-      color: var(--text-subtle);
+      font-size: var(--velvet-text-body-sm);
+      color: var(--velvet-text-subtle);
+      font-weight: 500;
     }
 
     .result-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: var(--velvet-size-10);
     }
 
     .result-line {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border-default);
-      color: var(--text-caption);
+      gap: var(--velvet-size-10);
+      padding: var(--velvet-size-10) 0;
+      border-bottom: var(--velvet-size-1) solid var(--velvet-border-neutral-subtle);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
     }
 
     .result-line strong {
       text-align: right;
       overflow-wrap: anywhere;
-      color: var(--text-heading);
+      color: var(--velvet-text-heading);
       font-weight: 800;
     }
 
@@ -296,36 +539,50 @@
       display: inline-flex;
       align-items: center;
       width: fit-content;
-      min-height: 28px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: var(--surface-primary-soft);
-      color: var(--text-primary);
-      border: 1px solid #EC84FF;
+      min-height: var(--velvet-size-28);
+      padding: var(--velvet-size-4) var(--velvet-size-10);
+      border-radius: var(--velvet-size-9999);
+      background: var(--velvet-surface-primary-subtle);
+      color: var(--velvet-text-highlight);
+      border: var(--velvet-size-1) solid var(--velvet-surface-primary-subtle-hover);
       font-weight: 800;
-      font-size: 0.84rem;
+      font-size: var(--velvet-text-body-xs);
     }
 
     .steps {
       display: grid;
-      gap: 10px;
-      padding-left: 18px;
-      color: var(--text-caption);
+      gap: var(--velvet-size-10);
+      padding-left: var(--velvet-size-18);
+      color: var(--velvet-text-caption);
+      font-size: var(--velvet-text-body-sm);
+      font-weight: 500;
     }
 
     .steps li::marker {
-      color: var(--surface-primary);
+      color: var(--velvet-surface-primary-default);
       font-weight: 800;
     }
 
     @media (max-width: 900px) {
-      .summary-bar, .grid, .three, .result-list { grid-template-columns: 1fr; }
-      header { padding-top: 24px; }
-      main, .intro { width: min(100% - 24px, 1180px); }
-      section { padding: 16px; }
-      table { font-size: 0.86rem; }
-      th, td { padding: 9px 8px; }
-      h1 { font-size: 2rem; }
+      .grid, .three, .result-list { grid-template-columns: 1fr; }
+      .month-data,
+      .month-data[data-currency="cop"] { grid-template-columns: 1fr; }
+      .month-data-controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .summary-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-bar .metric {
+        min-height: var(--velvet-size-72);
+        padding: var(--velvet-size-12);
+      }
+      :root { --velvet-summary-bar-offset: calc(var(--velvet-size-72) * 2 + var(--velvet-size-12) * 3 + var(--velvet-size-24)); }
+      header { padding-top: var(--velvet-size-24); }
+      main, .intro { width: min(calc(100% - var(--velvet-size-24)), 1180px); }
+      section { padding: var(--velvet-size-16); }
+      table { font-size: var(--velvet-text-body-xs); }
+      th, td { padding: var(--velvet-size-8) var(--velvet-size-8); }
+      h1 { font-size: var(--velvet-text-heading-xs); }
     }
   </style>
 </head>
@@ -339,22 +596,47 @@
   </header>
 
   <main>
-    <div class="summary-bar" aria-live="polite">
-      <div class="metric"><span>Ingreso mensual en COP</span><strong id="mIngreso">$0</strong></div>
-      <div class="metric"><span>Aportes PILA estimados</span><strong id="mAportes">$0</strong></div>
-      <div class="metric"><span>Retención / provisión impuesto</span><strong id="mRetencion">$0</strong></div>
-      <div class="metric"><span>Disponible después de separar</span><strong id="mDisponible">$0</strong></div>
-    </div>
-
     <section>
       <h2>1. Datos del mes</h2>
-      <div class="grid three">
-        <label>Honorarios del mes en USD
-          <input id="usd" type="number" min="0" step="0.01" value="5000">
+      <div class="month-data-controls">
+        <span class="month-data-controls__label">Moneda de honorarios</span>
+        <span class="currency-switch" role="group" aria-label="Moneda de honorarios">
+          <button type="button" class="currency-switch__option" data-currency="cop" aria-pressed="false">
+            <svg class="currency-flag" viewBox="0 0 16 12" aria-hidden="true">
+              <rect width="16" height="6" fill="#FCD116"/>
+              <rect y="6" width="16" height="3" fill="#003893"/>
+              <rect y="9" width="16" height="3" fill="#CE1126"/>
+            </svg>
+            COP
+          </button>
+          <button type="button" class="currency-switch__option is-active" data-currency="usd" aria-pressed="true">
+            <svg class="currency-flag" viewBox="0 0 16 12" aria-hidden="true">
+              <rect width="16" height="12" fill="#B22234"/>
+              <path stroke="#fff" stroke-width="1.15" d="M0 1.15H16M0 3.46H16M0 5.77H16M0 8.08H16M0 10.39H16"/>
+              <rect width="6.5" height="6.9" fill="#3C3B6E"/>
+            </svg>
+            USD
+          </button>
+        </span>
+      </div>
+      <div class="grid three month-data" id="datosMesGrid" data-currency="usd">
+        <label>
+          <span id="honorariosLabelText">Honorarios del mes en USD</span>
+          <input id="honorarios" type="number" min="0" step="0.01" value="5000">
         </label>
-        <label>TRM usada para convertir a COP
-          <input id="trm" type="number" min="0" step="0.01" value="3900">
-        </label>
+        <div class="trm-field" id="trmField">
+          <label>
+            <span class="label-row">
+              <span>TRM usada para convertir a COP</span>
+              <button type="button" class="trm-refresh" id="trmRefresh" title="Restaurar TRM oficial">Actualizar</button>
+            </span>
+            <input id="trm" type="number" min="0" step="0.01" value="3900">
+          </label>
+          <label class="trm-date-row">Fecha del abono
+            <input id="trmDate" type="date">
+          </label>
+          <p class="trm-status is-loading" id="trmStatus" aria-live="polite">Consultando TRM oficial…</p>
+        </div>
         <label>Otros ingresos del mes en COP
           <input id="otrosCop" type="number" min="0" step="1000" value="0">
         </label>
@@ -461,7 +743,7 @@
     <section>
       <h2>6. Fórmulas usadas</h2>
       <div class="result-list">
-        <div class="result-line"><span>Ingreso COP</span><strong>USD × TRM + otros ingresos</strong></div>
+        <div class="result-line"><span>Ingreso COP</span><strong id="formulaIngreso">USD × TRM + otros ingresos</strong></div>
         <div class="result-line"><span>IBC prestación de servicios</span><strong>40% del ingreso, mínimo 1 SMMLV y máximo 25 SMMLV si estás obligado</strong></div>
         <div class="result-line"><span>Salud</span><strong>IBC × 12,5%</strong></div>
         <div class="result-line"><span>Pensión</span><strong>IBC × 16%</strong></div>
@@ -485,6 +767,13 @@
     </section>
   </main>
 
+  <aside class="summary-bar" aria-live="polite" aria-label="Resumen mensual">
+    <div class="metric"><span>Ingreso mensual en COP</span><strong id="mIngreso">$0</strong></div>
+    <div class="metric"><span>Aportes PILA estimados</span><strong id="mAportes">$0</strong></div>
+    <div class="metric"><span>Retención / provisión impuesto</span><strong id="mRetencion">$0</strong></div>
+    <div class="metric"><span>Disponible después de separar</span><strong id="mDisponible">$0</strong></div>
+  </aside>
+
   <script>
     const money = new Intl.NumberFormat("es-CO", {
       style: "currency",
@@ -492,8 +781,244 @@
       maximumFractionDigits: 0
     });
 
+    const trmRate = new Intl.NumberFormat("es-CO", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    const trmDateFormat = new Intl.DateTimeFormat("es-CO", { dateStyle: "medium" });
+
+    const TRM_API = "https://www.datos.gov.co/resource/32sa-8pi3.json";
+    const TRM_SOURCE_URL = "https://www.datos.gov.co/Econom-a-y-Finanzas/Tasa-de-Cambio-Representativa-del-Mercado-TRM/32sa-8pi3";
+    const TRM_CACHE_KEY = "velvet-trm-cache";
+    const TRM_FALLBACK = 3900;
+
     const inputs = Array.from(document.querySelectorAll("input, select"));
-    inputs.forEach((input) => input.addEventListener("input", calculate));
+    inputs.forEach((input) => {
+      if (input.id === "trm" || input.id === "trmDate") return;
+      input.addEventListener("input", calculate);
+    });
+
+    let honorariosCurrency = "usd";
+    let trmSource = "loading";
+    let trmFetchToken = 0;
+
+    const honorariosInput = document.getElementById("honorarios");
+    const trmField = document.getElementById("trmField");
+    const trmInput = document.getElementById("trm");
+    const trmDateInput = document.getElementById("trmDate");
+    const trmStatus = document.getElementById("trmStatus");
+    const trmRefresh = document.getElementById("trmRefresh");
+    const datosMesGrid = document.getElementById("datosMesGrid");
+    const honorariosLabelText = document.getElementById("honorariosLabelText");
+    const formulaIngreso = document.getElementById("formulaIngreso");
+    const currencyButtons = Array.from(document.querySelectorAll(".currency-switch__option"));
+
+    trmDateInput.value = todayIsoDate();
+    trmDateInput.addEventListener("change", () => {
+      trmSource = "loading";
+      loadOfficialTrm({ force: true });
+    });
+
+    trmRefresh.addEventListener("click", () => loadOfficialTrm({ force: true }));
+
+    trmInput.addEventListener("input", () => {
+      trmSource = "manual";
+      renderTrmStatus();
+      calculate();
+    });
+
+    function todayIsoDate() {
+      const now = new Date();
+      const offset = now.getTimezoneOffset();
+      return new Date(now.getTime() - offset * 60_000).toISOString().slice(0, 10);
+    }
+
+    function parseTrmRow(row) {
+      const valor = Number(row?.valor);
+      if (!Number.isFinite(valor) || valor <= 0) throw new Error("TRM inválida");
+      const vigenciaDesde = String(row.vigenciadesde || "").slice(0, 10);
+      const vigenciaHasta = String(row.vigenciahasta || vigenciaDesde).slice(0, 10);
+      return { valor, vigenciaDesde, vigenciaHasta };
+    }
+
+    function readTrmCache(queryDate) {
+      try {
+        const cached = JSON.parse(localStorage.getItem(TRM_CACHE_KEY) || "null");
+        if (!cached || cached.queryDate !== queryDate) return null;
+        if (Date.now() - cached.fetchedAt > 6 * 60 * 60 * 1000) return null;
+        return parseTrmRow(cached);
+      } catch {
+        return null;
+      }
+    }
+
+    function writeTrmCache(queryDate, row) {
+      try {
+        localStorage.setItem(TRM_CACHE_KEY, JSON.stringify({
+          ...row,
+          valor: String(row.valor),
+          vigenciadesde: `${row.vigenciaDesde}T00:00:00.000`,
+          vigenciahasta: `${row.vigenciaHasta}T00:00:00.000`,
+          queryDate,
+          fetchedAt: Date.now()
+        }));
+      } catch {
+        /* ignore quota errors */
+      }
+    }
+
+    async function fetchOfficialTrm(queryDate) {
+      const url = new URL(TRM_API);
+      url.searchParams.set("$select", "valor,vigenciadesde,vigenciahasta");
+      url.searchParams.set("$where", `vigenciadesde <= '${queryDate}T23:59:59.000'`);
+      url.searchParams.set("$order", "vigenciadesde DESC");
+      url.searchParams.set("$limit", "1");
+
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`TRM HTTP ${response.status}`);
+
+      const rows = await response.json();
+      if (!Array.isArray(rows) || rows.length === 0) throw new Error("TRM no encontrada");
+      return parseTrmRow(rows[0]);
+    }
+
+    function formatIsoDate(isoDate) {
+      return trmDateFormat.format(new Date(`${isoDate}T12:00:00`));
+    }
+
+    function renderTrmStatus(extraMessage) {
+      trmStatus.classList.remove("is-loading", "is-official", "is-manual", "is-error");
+
+      if (trmSource === "loading") {
+        trmStatus.classList.add("is-loading");
+        trmStatus.textContent = extraMessage || "Consultando TRM oficial…";
+        return;
+      }
+
+      if (trmSource === "error") {
+        trmStatus.classList.add("is-error");
+        trmStatus.textContent = extraMessage || "No se pudo cargar la TRM oficial. Puedes editarla manualmente.";
+        return;
+      }
+
+      if (trmSource === "manual") {
+        trmStatus.classList.add("is-manual");
+        trmStatus.textContent = "TRM editada manualmente. Usa «Actualizar» para restaurar la TRM oficial.";
+        return;
+      }
+
+      const vigenciaDesde = trmInput.dataset.vigenciaDesde;
+      const vigenciaHasta = trmInput.dataset.vigenciaHasta;
+      const queryDate = trmDateInput.value;
+      trmStatus.classList.add("is-official");
+
+      let message = `TRM oficial: ${trmRate.format(value("trm"))} COP/USD`;
+      if (vigenciaDesde) {
+        message += ` · vigente desde ${formatIsoDate(vigenciaDesde)}`;
+        if (vigenciaHasta && vigenciaHasta !== vigenciaDesde) {
+          message += ` hasta ${formatIsoDate(vigenciaHasta)}`;
+        }
+      }
+      if (queryDate && queryDate !== todayIsoDate()) {
+        message += ` · consultada para abono del ${formatIsoDate(queryDate)}`;
+      }
+      message += " · Fuente: ";
+      trmStatus.innerHTML = `${message}<a href="${TRM_SOURCE_URL}" target="_blank" rel="noopener noreferrer">datos.gov.co</a>`;
+    }
+
+    async function loadOfficialTrm(options = {}) {
+      if (honorariosCurrency === "cop") return;
+
+      const queryDate = trmDateInput.value || todayIsoDate();
+      const requestId = ++trmFetchToken;
+
+      trmSource = "loading";
+      trmRefresh.disabled = true;
+      renderTrmStatus(options.force ? "Actualizando TRM oficial…" : undefined);
+
+      if (!options.force) {
+        const cached = readTrmCache(queryDate);
+        if (cached) {
+          applyOfficialTrm(cached, queryDate);
+          return;
+        }
+      }
+
+      try {
+        const row = await fetchOfficialTrm(queryDate);
+        if (requestId !== trmFetchToken) return;
+        writeTrmCache(queryDate, row);
+        applyOfficialTrm(row, queryDate);
+      } catch (error) {
+        if (requestId !== trmFetchToken) return;
+        trmSource = "error";
+        if (!trmInput.value || Number(trmInput.value) <= 0) {
+          trmInput.value = String(TRM_FALLBACK);
+        }
+        renderTrmStatus(error.message || "No se pudo cargar la TRM oficial.");
+        calculate();
+      } finally {
+        if (requestId === trmFetchToken) {
+          trmRefresh.disabled = honorariosCurrency === "cop";
+        }
+      }
+    }
+
+    function applyOfficialTrm(row, queryDate) {
+      trmSource = "official";
+      trmInput.value = String(row.valor);
+      trmInput.dataset.vigenciaDesde = row.vigenciaDesde;
+      trmInput.dataset.vigenciaHasta = row.vigenciaHasta;
+      trmInput.dataset.queryDate = queryDate;
+      renderTrmStatus();
+      trmRefresh.disabled = honorariosCurrency === "cop";
+      calculate();
+    }
+
+    currencyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextCurrency = button.dataset.currency;
+        if (nextCurrency === honorariosCurrency) return;
+
+        const honorarios = value("honorarios");
+        const trm = value("trm");
+
+        if (nextCurrency === "cop") {
+          honorariosInput.value = String(Math.round(honorarios * trm));
+          honorariosInput.step = "1000";
+        } else {
+          honorariosInput.value = trm > 0 ? (honorarios / trm).toFixed(2) : String(honorarios);
+          honorariosInput.step = "0.01";
+        }
+
+        honorariosCurrency = nextCurrency;
+        updateCurrencyUI();
+        if (nextCurrency === "usd") loadOfficialTrm();
+        calculate();
+      });
+    });
+
+    function updateCurrencyUI() {
+      const isCop = honorariosCurrency === "cop";
+      trmField.hidden = isCop;
+      trmInput.disabled = isCop;
+      trmDateInput.disabled = isCop;
+      if (isCop) {
+        trmRefresh.disabled = true;
+      } else if (trmSource !== "loading") {
+        trmRefresh.disabled = false;
+      }
+      datosMesGrid.dataset.currency = honorariosCurrency;
+      honorariosLabelText.textContent = isCop ? "Honorarios del mes en COP" : "Honorarios del mes en USD";
+      formulaIngreso.textContent = isCop ? "Honorarios en COP + otros ingresos" : "USD × TRM + otros ingresos";
+
+      currencyButtons.forEach((btn) => {
+        const active = btn.dataset.currency === honorariosCurrency;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+    }
 
     function value(id) {
       const el = document.getElementById(id);
@@ -522,12 +1047,13 @@
     }
 
     function calculate() {
-      const usd = value("usd");
+      const honorarios = value("honorarios");
       const trm = value("trm");
       const otrosCop = value("otrosCop");
       const uvt = value("uvt");
       const smmlv = value("smmlv");
-      const ingreso = Math.max(0, usd * trm + otrosCop);
+      const honorariosCop = honorariosCurrency === "usd" ? honorarios * trm : honorarios;
+      const ingreso = Math.max(0, honorariosCop + otrosCop);
       const obligado = ingreso >= smmlv;
       const ibc = obligado ? clamp(ingreso * 0.4, smmlv, smmlv * 25) : 0;
 
@@ -594,14 +1120,15 @@
         estado.textContent = "El ingreso está por debajo de 1 SMMLV. Según la guía UGPP, la obligación de aportar se activa con ingresos mensuales iguales o superiores a 1 SMMLV; aun así puedes aportar voluntariamente para mantener cobertura.";
       } else if (disponible < 0) {
         estado.className = "note danger";
-        estado.textContent = "Las reservas y aportes superan el ingreso del mes. Revisa TRM, deducciones, ARL, reserva extra o el método de impuesto.";
+        estado.textContent = "Las reservas y aportes superan el ingreso del mes. Revisa honorarios, deducciones, ARL, reserva extra o el método de impuesto.";
       } else {
         estado.className = "note";
         estado.textContent = "Con estos datos, este es el dinero que deberías separar antes de gastar. El disponible es lo que queda para vida personal y operación.";
       }
     }
 
-    calculate();
+    updateCurrencyUI();
+    loadOfficialTrm();
   </script>
 </body>
 </html>
